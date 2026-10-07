@@ -1,3 +1,4 @@
+import ProductoCard from './components/ProductoCard';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function Home() {
@@ -16,7 +17,7 @@ function Products() {
   return (
     <div className="container mt-4">
       <h2>Catálogo de Productos</h2>
-      <p>Próximamente lista de productos...</p>
+      <ProductoCard />
     </div>
   );
 }
