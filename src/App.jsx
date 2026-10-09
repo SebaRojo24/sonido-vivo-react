@@ -1,3 +1,4 @@
+import PiePagina from './components/PiePagina';
 import Navegacion from './components/Navegacion';
 import ProductoCard from './components/ProductoCard';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -27,13 +28,15 @@ function App() {
   return (
     <BrowserRouter>
       <Navegacion />
- 
+
       <main className="py-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>
+
+      <PiePagina />
     </BrowserRouter>
   );
 }
