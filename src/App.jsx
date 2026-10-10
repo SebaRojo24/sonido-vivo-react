@@ -1,5 +1,8 @@
+import PiePagina from './components/PiePagina';
+import Navegacion from './components/Navegacion';
+import ProductoCard from './components/ProductoCard';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
+ 
 function Home() {
   return (
     <div className="container mt-5">
@@ -11,28 +14,20 @@ function Home() {
     </div>
   );
 }
-
+ 
 function Products() {
   return (
     <div className="container mt-4">
       <h2>Catálogo de Productos</h2>
-      <p>Próximamente lista de productos...</p>
+      <ProductoCard />
     </div>
   );
 }
-
+ 
 function App() {
   return (
     <BrowserRouter>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand fw-bold" to="/">Sonido Vivo</Link>
-          <div className="navbar-nav">
-            <Link className="nav-link" to="/">Inicio</Link>
-            <Link className="nav-link" to="/products">Productos</Link>
-          </div>
-        </div>
-      </nav>
+      <Navegacion />
 
       <main className="py-4">
         <Routes>
@@ -40,8 +35,10 @@ function App() {
           <Route path="/products" element={<Products />} />
         </Routes>
       </main>
+
+      <PiePagina />
     </BrowserRouter>
   );
 }
-
+ 
 export default App;
