@@ -17,6 +17,8 @@ function App() {
           {/* Otras rutas de la tienda */}
         </Routes>
       </main>
+
+      <PiePagina />
     </BrowserRouter>
   );
 }
