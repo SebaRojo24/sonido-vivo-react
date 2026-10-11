@@ -1,38 +1,20 @@
-import PiePagina from './components/PiePagina';
-import Navegacion from './components/Navegacion';
-import ProductoCard from './components/ProductoCard';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
- 
-function Home() {
-  return (
-    <div className="container mt-5">
-      <div className="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
-        <h1 className="display-4 fw-bold text-primary">Sonido Vivo</h1>
-        <p className="lead">Tienda de Instrumentos Musicales y Equipamiento de Audio</p>
-        <Link to="/products" className="btn btn-primary btn-lg">Ver Catálogo</Link>
-      </div>
-    </div>
-  );
-}
- 
-function Products() {
-  return (
-    <div className="container mt-4">
-      <h2>Catálogo de Productos</h2>
-      <ProductoCard />
-    </div>
-  );
-}
- 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navegacion from './components/Navegacion'; // O Navbar.jsx
+import Nosotros from './pages/Nosotros';
+import Blog from './pages/Blog';
+import detalleblog from './pages/detalleBlog'; // Página de detalle del blog
+
 function App() {
   return (
     <BrowserRouter>
       <Navegacion />
-
-      <main className="py-4">
+      <main id="contenido-principal">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/nosotros" element={<Nosotros/>} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/blog/:id" element={<detalleblog/>} /> {/* Ruta para detalle del blog */}
+          {/* Agrega aquí más rutas según sea necesario */}
+          {/* Otras rutas de la tienda */}
         </Routes>
       </main>
 
@@ -40,5 +22,5 @@ function App() {
     </BrowserRouter>
   );
 }
- 
+
 export default App;
