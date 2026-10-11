@@ -1,7 +1,7 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import TarjetaPilares from '../components/TarjetaPilares';
+import TarjetaPilar from '../components/TarjetaPilares';
 
-function NosotrosPage() {
+function Nosotros() {
   const pilaresData = [
     {
       id: 1,
@@ -63,4 +63,4 @@ function NosotrosPage() {
   );
 }
 
-export default NosotrosPage;
+export default Nosotros;

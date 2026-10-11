@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { blogsData } from '../data/blogsData';
 
-function BlogDetailPage() {
+function DetalleBlog() {
   const { id } = useParams();
   const blog = blogsData.find((b) => b.id === id);
 
@@ -82,4 +82,4 @@ function BlogDetailPage() {
   );
 }
 
-export default BlogDetailPage;
+export default DetalleBlog;

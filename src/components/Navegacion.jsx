@@ -9,13 +9,13 @@ function Navegacion() {
         <Navbar.Toggle aria-controls="menu-principal" />
         <Navbar.Collapse id="menu-principal">
           <Nav className="ms-auto">
-            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/productos">Productos</Nav.Link>
-            <Nav.Link as={NavLink} to="/nosotros">Nosotros</Nav.Link>
-            <Nav.Link as={NavLink} to="/blog">Blogs</Nav.Link>
-            <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
-            <Nav.Link as={NavLink} to="/login">Iniciar sesión</Nav.Link>
-            <Nav.Link as={NavLink} to="/carrito">🛒 Carrito</Nav.Link>
+            <NavLink className="nav-link" to="/">Inicio</NavLink>
+            <NavLink className="nav-link" to="/productos">Productos</NavLink>
+            <NavLink className="nav-link" to="/nosotros">Nosotros</NavLink>
+            <NavLink className="nav-link" to="/blog">Blogs</NavLink>
+            <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
+            <NavLink className="nav-link" to="/login">Iniciar sesión</NavLink>
+            <NavLink className="nav-link" to="/carrito">🛒 Carrito</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

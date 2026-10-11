@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import { blogsData } from '../data/blogsData';
 import TarjetaBlog from '../components/TarjetaBlog';
 
-function BlogPage() {
+function Blog() {
   return (
     <Container className="py-5">
       {/* Sección Hero */}
@@ -23,4 +23,4 @@ function BlogPage() {
   );
 }
 
-export default BlogPage;
+export default Blog;
