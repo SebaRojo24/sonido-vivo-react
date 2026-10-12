@@ -9,6 +9,8 @@ import NoEncontrada from "./pages/NoEncontrada";
 import PiePagina from "./components/PiePagina";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProductos from "./pages/admin/AdminProductos";
+import Registro from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/nosotros" element={<Nosotros/>} />
         <Route path="/blog" element={<Blog/>} />
+        <Route path="/signup" element={<Registro/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/blog/:id" element={<DetalleBlog/>} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/productos" element={<AdminProductos />} />
