@@ -7,6 +7,8 @@ import Blog from "./pages/Blog";
 import DetalleBlog from "./pages/DetalleBlog";
 import NoEncontrada from "./pages/NoEncontrada"; 
 import PiePagina from "./components/PiePagina";
+import Registro from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/nosotros" element={<Nosotros/>} />
         <Route path="/blog" element={<Blog/>} />
+        <Route path="/signup" element={<Registro/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/blog/:id" element={<DetalleBlog/>} />
         <Route path="*" element={<NoEncontrada />} />
       </Routes>
