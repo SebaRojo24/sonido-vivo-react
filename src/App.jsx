@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { initialProducts } from './data/productosData'; // <-- Agregamos tus datos
 import Navegacion from "./components/Navegacion";
 import Inicio from "./pages/Inicio";
 import Productos from "./pages/Productos";
@@ -13,12 +14,21 @@ import Registro from "./pages/Signup";
 import Login from "./pages/Login";
 
 function App() {
+  // Función temporal requerida por la Guía 10 para capturar el evento del click
+  function agregarTemporal(producto) {
+    console.log("Producto seleccionado en consola:", producto.name);
+  }
+
   return (
     <>
       <Navegacion />
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/productos" element={<Productos />} />
+        {/* Modificamos esta ruta para pasarle los productos y la función */}
+        <Route 
+          path="/productos" 
+          element={<Productos productos={initialProducts} onAgregar={agregarTemporal} />} 
+        />
         <Route path="/nosotros" element={<Nosotros/>} />
         <Route path="/blog" element={<Blog/>} />
         <Route path="/signup" element={<Registro/>} />
@@ -29,7 +39,7 @@ function App() {
         <Route path="*" element={<NoEncontrada />} />
       </Routes>
       <PiePagina />
-      </>
+    </>
   );
 }
 
