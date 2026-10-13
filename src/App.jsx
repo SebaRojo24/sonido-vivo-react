@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react"; 
 import { Routes, Route } from "react-router-dom";
-import { initialProducts } from './data/productosData'; // <-- Agregamos tus datos
+import { initialProducts } from './data/productosData';
 import Navegacion from "./components/Navegacion";
 import Inicio from "./pages/Inicio";
 import Productos from "./pages/Productos";
@@ -14,9 +15,26 @@ import Registro from "./pages/Signup";
 import Login from "./pages/Login";
 
 function App() {
-  // Función temporal requerida por la Guía 10 para capturar el evento del click
-  function agregarTemporal(producto) {
-    console.log("Producto seleccionado en consola:", producto.name);
+  // 1. Inicialización inteligente: Recupera el carrito guardado en el navegador o inicia vacío
+  const [carrito, setCarrito] = useState(() => {
+    const guardados = localStorage.getItem("carrito_productos");
+    return guardados ? JSON.parse(guardados) : [];
+  });
+
+  // 2. Efecto oficial para guardar automáticamente en localStorage al añadir productos
+  useEffect(() => {
+    localStorage.setItem(
+      "carrito_productos",
+      JSON.stringify(carrito)
+    );
+  }, [carrito]); // Dependencia exacta del estado del carrito
+
+  // 3. Función para agregar productos respetando la inmutabilidad
+  function agregarProducto(producto) {
+    const yaExiste = carrito.some((item) => item.id === producto.id);
+    if (yaExiste) return;
+
+    setCarrito([...carrito, producto]);
   }
 
   return (
@@ -24,10 +42,9 @@ function App() {
       <Navegacion />
       <Routes>
         <Route path="/" element={<Inicio />} />
-        {/* Modificamos esta ruta para pasarle los productos y la función */}
-        <Route 
-          path="/productos" 
-          element={<Productos productos={initialProducts} onAgregar={agregarTemporal} />} 
+        <Route
+          path="/productos"
+          element={<Productos productos={initialProducts} onAgregar={agregarProducto} />}
         />
         <Route path="/nosotros" element={<Nosotros/>} />
         <Route path="/blog" element={<Blog/>} />
