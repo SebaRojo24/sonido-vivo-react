@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"; 
+
 function ProductoCard({ producto, onAgregar }) {
   return (
     <article className="card h-100 shadow-sm">
@@ -5,7 +7,7 @@ function ProductoCard({ producto, onAgregar }) {
         <div>
           <h2 className="h5 text-dark fw-bold">{producto.name}</h2>
           <span className="badge bg-secondary mb-2">{producto.category}</span>
-          <p className="fw-bold text-primary h4">Precio: ${producto.price}</p>
+          <p className="fw-bold text-primary h4">Precio: \${producto.price}</p>
           <p className="text-muted">Stock disponible: {producto.stock}</p>
           
           {/* Alerta responsiva si quedan pocas unidades */}
@@ -14,13 +16,20 @@ function ProductoCard({ producto, onAgregar }) {
           )}
         </div>
 
-        <button
-          className="btn btn-primary w-100 mt-3"
-          onClick={() => onAgregar(producto)}
-          disabled={producto.stock === 0}
-        >
-          {producto.stock === 0 ? "Agotado" : "Agregar al carrito"}
-        </button>
+        <div className="mt-3">
+          {/* Botón de la Guía 11 para ir a la vista de detalle usando el ID */}
+          <Link to={`/productos/${producto.id}`} className="btn btn-outline-secondary w-100 mb-2">
+            Ver Detalle
+          </Link>
+
+          <button
+            className="btn btn-primary w-100"
+            onClick={() => onAgregar(producto)}
+            disabled={producto.stock === 0}
+          >
+            {producto.stock === 0 ? "Agotado" : "Agregar al carrito"}
+          </button>
+        </div>
       </div>
     </article>
   );
