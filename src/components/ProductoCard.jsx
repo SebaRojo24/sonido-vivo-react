@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import { formatearPrecio } from "../utils/precio"; // <-- Importación oficial de la utilidad
 
 function ProductoCard({ producto, onAgregar }) {
   return (
@@ -7,7 +8,8 @@ function ProductoCard({ producto, onAgregar }) {
         <div>
           <h2 className="h5 text-dark fw-bold">{producto.name}</h2>
           <span className="badge bg-secondary mb-2">{producto.category}</span>
-          <p className="fw-bold text-primary h4">Precio: \${producto.price}</p>
+          {/* Usamos la función pura de la guía para renderizar el precio */}
+          <p className="fw-bold text-primary h4">Precio: {formatearPrecio(producto.price)}</p>
           <p className="text-muted">Stock disponible: {producto.stock}</p>
           
           {/* Alerta responsiva si quedan pocas unidades */}
@@ -17,7 +19,6 @@ function ProductoCard({ producto, onAgregar }) {
         </div>
 
         <div className="mt-3">
-          {/* Botón de la Guía 11 para ir a la vista de detalle usando el ID */}
           <Link to={`/productos/${producto.id}`} className="btn btn-outline-secondary w-100 mb-2">
             Ver Detalle
           </Link>
