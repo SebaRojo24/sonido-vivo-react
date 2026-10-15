@@ -1,4 +1,4 @@
-export function guardarFormulario(registro, nuevo) {
+function guardarFormulario(registro, nuevo) {
   const registroExistente = localStorage.getItem(registro);
   
   const lista = registroExistente ? JSON.parse(registroExistente) : [];
@@ -9,3 +9,5 @@ export function guardarFormulario(registro, nuevo) {
     registro, 
     JSON.stringify(lista));
 }
+
+export default guardarFormulario;
