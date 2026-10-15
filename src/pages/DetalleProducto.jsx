@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { initialProducts } from "../data/productosData";
-import { formatearPrecio } from "../utils/precio"; // <-- Importación oficial de la utilidad
+import { formatearPrecio } from "../utils/precio";
 
 function DetalleProducto() {
   const { id } = useParams();
@@ -20,19 +20,19 @@ function DetalleProducto() {
 
   return (
     <div className="container mt-5">
-      <div className="row">
-        <div className="col-12 col-md-6">
+      <div className="row align-items-center">
+        <div className="col-12 col-md-6 mb-4 mb-md-0">
           <img 
-            src={`https://placeholder.com{encodeURIComponent(producto.name)}`} 
+            src={producto.image} 
             alt={producto.name} 
-            className="img-fluid rounded shadow-sm"
+            className="img-fluid rounded shadow-sm w-100"
+            style={{ maxHeight: "450px", objectFit: "cover" }}
           />
         </div>
         <div className="col-12 col-md-6">
           <span className="badge bg-secondary mb-2">{producto.category}</span>
           <h1 className="fw-bold text-dark">{producto.name}</h1>
           <p className="text-muted fs-5">{producto.description}</p>
-          {/* Reemplazamos el toLocaleString manual por la función centralizada de la pauta */}
           <h3 className="text-primary fw-bold mb-4">Precio: {formatearPrecio(producto.price)}</h3>
           <Link to="/productos" className="btn btn-outline-primary">
             ← Volver al Catálogo

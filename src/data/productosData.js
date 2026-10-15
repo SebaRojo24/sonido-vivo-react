@@ -1,3 +1,9 @@
+// src/data/productosData.js
+import imgFender from "../assets/guitarra.jpg";
+import imgIbanez from "../assets/bajo.jpg";
+import imgYamaha from "../assets/teclado.jpg";
+import imgPearl from "../assets/bateria.jpg";
+
 export const initialProducts = [
   {
     id: '1',
@@ -5,7 +11,7 @@ export const initialProducts = [
     category: 'Guitarras',
     price: 799990,
     description: 'Guitarra eléctrica icónica con tres cápsulas single-coil y cuerpo de aliso.',
-    image: 'https://via.placeholder.com/300x200?text=Fender+Stratocaster',
+    image: imgFender,
     isOffer: false,
     stock: 5
   },
@@ -15,7 +21,7 @@ export const initialProducts = [
     category: 'Bajos',
     price: 349990,
     description: 'Bajo de 4 cuerdas con electrónica activa y mástil ultrarrápido.',
-    image: 'https://via.placeholder.com/300x200?text=Ibanez+SR300E',
+    image: imgIbanez,
     isOffer: true,
     offerPrice: 299990,
     stock: 3
@@ -26,7 +32,7 @@ export const initialProducts = [
     category: 'Teclados',
     price: 219990,
     description: 'Teclado portátil de 61 teclas sensibles a la pulsación.',
-    image: 'https://via.placeholder.com/300x200?text=Yamaha+PSR-E373',
+    image: imgYamaha,
     isOffer: false,
     stock: 8
   },
@@ -36,7 +42,7 @@ export const initialProducts = [
     category: 'Percusión',
     price: 499990,
     description: 'Set completo de batería de 5 piezas con platillos y sillín incluidos.',
-    image: 'https://via.placeholder.com/300x200?text=Pearl+Roadshow',
+    image: imgPearl,
     isOffer: true,
     offerPrice: 429990,
     stock: 2
