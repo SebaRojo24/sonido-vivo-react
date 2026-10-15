@@ -19,6 +19,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProductos from "./pages/admin/AdminProductos";
 import Registro from "./pages/Signup";
 import Login from "./pages/Login";
+import Contacto from "./pages/Contacto";
 
 function App() {
   const [carrito, setCarrito] = useState(() => {
@@ -72,6 +73,7 @@ function App() {
         <Route path="/blog" element={<Blog/>} />
         <Route path="/signup" element={<Registro/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/contacto" element={<Contacto/>} />
         <Route path="/blog/:id" element={<DetalleBlog/>} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/productos" element={<AdminProductos />} />

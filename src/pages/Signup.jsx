@@ -1,9 +1,25 @@
 import { useState } from "react"; 
 import { Button, Form } from "react-bootstrap"; 
- 
-const inicial = { nombre: "", apellido: "" }; 
- 
-function Registro({ onGuardar }) { 
+import CampoNombreYApellido from "../components/form/CampoNombreYApellido";
+import CampoRegionYComuna from "../components/form/CampoRegionYComuna";
+import CampoRut from "../components/form/CampoRut";
+import CampoDireccion from "../components/form/CampoDireccion";
+import CampoContrasenna from "../components/form/CampoContrasenna";
+import CampoEmail from "../components/form/CampoEmail";
+import guardarFormulario from "../utils/persistencia.js";
+
+const inicial = { nombre: "", 
+                  apellido: "", 
+                  rut: "", 
+                  region: "", 
+                  comuna: "", 
+                  direccion: "", 
+                  email: "", 
+                  contrasenna: "" 
+};
+
+function Registro() { 
+
   const [datos, setDatos] = useState(inicial); 
   const [errores, setErrores] = useState({}); 
  
@@ -16,35 +32,34 @@ function Registro({ onGuardar }) {
     evento.preventDefault(); 
     const nuevosErrores = {}; 
  
+    //Insertar TODAS las validaciones desde funciones
     if (!datos.nombre.trim()) nuevosErrores.nombre = "Nombre obligatorio"; 
     if (!datos.apellido.trim()) nuevosErrores.apellido = "Apellido obligatorio";
  
     setErrores(nuevosErrores); 
     if (Object.keys(nuevosErrores).length > 0) return; 
- 
-    onGuardar({ ...datos}); 
+
+    //Guardado de datos usando función de persistencia en LS:
+    guardarFormulario("usuarios", datos);
+
     setDatos(inicial); 
   } 
  
-  return ( 
-    
-    <Form onSubmit={enviar} noValidate> 
-      <Form.Group className="mb-3" controlId="nombre"> 
-        <Form.Label>Nombre:</Form.Label> 
-        <Form.Control name="nombre" value={datos.nombre} 
-          onChange={cambiar} isInvalid={Boolean(errores.nombre)} /> 
-        <Form.Control.Feedback type="invalid"> 
-          {errores.nombre} 
-        </Form.Control.Feedback>
-        <Form.Label>Apellido:</Form.Label> 
-        <Form.Control name="apellido" value={datos.apellido} 
-          onChange={cambiar} isInvalid={Boolean(errores.apellido)} /> 
-        <Form.Control.Feedback type="invalid"> 
-          {errores.apellido} 
-        </Form.Control.Feedback>  
-      </Form.Group> 
-      <Button type="submit">Enviar Formulario</Button> 
-    </Form> 
+ return (
+    <div className="container mt-4">
+      <h2>Registro de Usuario</h2>
+      <Form onSubmit={enviar} noValidate>
+        <CampoNombreYApellido datos={datos} errores={errores} onChange={cambiar} />
+        <CampoRut datos={datos} errores={errores} onChange={cambiar} />
+        <CampoRegionYComuna datos={datos} errores={errores} onChange={cambiar} />
+        <CampoDireccion datos={datos} errores={errores} onChange={cambiar} />
+        <CampoEmail datos={datos} errores={errores} onChange={cambiar} />
+        <CampoContrasenna datos={datos} errores={errores} onChange={cambiar} />
+
+        <Button type="submit">Enviar Formulario</Button>
+
+    </Form>
+    </div> 
   ); 
 } 
 
