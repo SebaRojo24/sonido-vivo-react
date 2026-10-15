@@ -1,7 +1,7 @@
-import { useState } from "react";
+/*import { useState } from "react";
 import { regionesYComunas } from "../data/regionesYComunas";
 
-export function selectRegionComuna() {
+export function selectorRegionComuna() {
   const [region, setRegion] = useState("");
   const [comuna, setComuna] = useState("");
 
@@ -29,4 +29,12 @@ export function selectRegionComuna() {
     cambiarRegion,
     cambiarComuna,
   };
+}
+
+*/
+
+export function selectorRegionComuna(regionNombre, lista) {
+  if (!regionNombre) return [];
+  const encontrada = lista.find((item) => item.region === regionNombre);
+  return encontrada ? encontrada.comunas : [];
 }

@@ -1,5 +1,7 @@
 import { useState } from "react"; 
-import { Button, Form } from "react-bootstrap"; 
+import { Button, Form } from "react-bootstrap";
+import CampoContrasenna from "../components/form/CampoContrasenna";
+import CampoEmail from "../components/form/CampoEmail";
  
 const inicial = { email: "", password: "" }; 
  
@@ -16,6 +18,7 @@ function Login() {
     evento.preventDefault(); 
     const nuevosErrores = {}; 
  
+    //Completar lógica de validación de email y contraseña respecto de datos guardados en LocalStorage
     if (!datos.email.trim()) nuevosErrores.email = "Campo obligatorio"; 
     if (!datos.password.trim()) nuevosErrores.password = "Campo obligatorio";
  
@@ -27,24 +30,15 @@ function Login() {
   }  
 
   return ( 
-    
-    <Form onSubmit={enviar} noValidate> 
-      <Form.Group className="mb-3" controlId="nombre"> 
-        <Form.Label>E-mail:</Form.Label> 
-        <Form.Control name="email" value={datos.email} 
-          onChange={cambiar} isInvalid={Boolean(errores.email)} /> 
-        <Form.Control.Feedback type="invalid"> 
-          {errores.email} 
-        </Form.Control.Feedback>
-        <Form.Label>Password:</Form.Label> 
-        <Form.Control name="password" value={datos.password} 
-          onChange={cambiar} isInvalid={Boolean(errores.password)} /> 
-        <Form.Control.Feedback type="invalid"> 
-          {errores.password} 
-        </Form.Control.Feedback>  
-      </Form.Group> 
+    <div className="container mt-4">
+      <h2>Iniciar Sesión</h2>
+      <Form onSubmit={enviar} noValidate>
+        <CampoEmail datos={datos} errores={errores} onChange={cambiar} />
+        <CampoContrasenna datos={datos} errores={errores} onChange={cambiar} />
+
       <Button type="submit">Ingresar</Button> 
-    </Form> 
+      </Form> 
+    </div>
   ); 
 } 
 
