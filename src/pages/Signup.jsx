@@ -1,14 +1,14 @@
 import { useState } from "react"; 
 import { Button, Form } from "react-bootstrap"; 
 import { regionesYComunas } from "../data/regionesYComunas";
-import { selectRegionComuna } from "../utils/selectRegionComuna";
+import { selectorRegionComuna } from "../utils/selectorRegionComuna";
 
 const inicial = { nombre: "", apellido: "", region: "", comuna: ""};
 
 function Registro({ onGuardar }) { 
 
    
-  const {region, comuna, comunasDisponibles, cambiarRegion, cambiarComuna} = selectRegionComuna();
+  const {region, comuna, comunasDisponibles, cambiarRegion, cambiarComuna} = selectorRegionComuna();
 
   const [datos, setDatos] = useState(inicial); 
   const [errores, setErrores] = useState({}); 

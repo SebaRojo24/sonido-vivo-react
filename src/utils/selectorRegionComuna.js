@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { regionesYComunas } from "../data/regionesYComunas";
 
-export function selectRegionComuna() {
+export function selectorRegionComuna() {
   const [region, setRegion] = useState("");
   const [comuna, setComuna] = useState("");
 
