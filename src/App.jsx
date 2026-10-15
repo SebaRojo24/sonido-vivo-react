@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"; 
 import { Routes, Route } from "react-router-dom";
 import { initialProducts } from './data/productosData';
+import { guardarCarritoLocalStorage } from "./utils/persistencia"; // <-- 1. Importación oficial de la Guía 14
 import Navegacion from "./components/Navegacion";
 import Inicio from "./pages/Inicio";
 import Productos from "./pages/Productos";
@@ -25,11 +26,9 @@ function App() {
     return guardados ? JSON.parse(guardados) : [];
   });
 
+  // 2. Efecto modificado para usar la función centralizada que verificará el espía (Guía 14)
   useEffect(() => {
-    localStorage.setItem(
-      "carrito_productos",
-      JSON.stringify(carrito)
-    );
+    guardarCarritoLocalStorage(carrito);
   }, [carrito]);
 
   function agregarProducto(producto) {
@@ -44,7 +43,6 @@ function App() {
     );
   }
 
-  // 2. Función oficial para limpiar el carrito al confirmar la compra (Guía 11)
   function limpiarCarrito() {
     setCarrito([]);
   }
@@ -65,7 +63,6 @@ function App() {
           element={<Carrito productosCarrito={carrito} onEliminar={eliminarProducto} />} 
         />
 
-        {/* 3. Conectamos la ruta de Checkout pasándole la función de limpieza */}
         <Route 
           path="/checkout" 
           element={<Checkout vaciarCarrito={limpiarCarrito} />} 
@@ -81,7 +78,6 @@ function App() {
         <Route path="*" element={<NoEncontrada />} />
         <Route path="/pago-exitoso" element={<PagoExitoso />} />
         <Route path="/pago-error" element={<PagoError />} />
-
       </Routes>
       <PiePagina />
     </>
