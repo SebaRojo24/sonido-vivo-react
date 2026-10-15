@@ -6,7 +6,7 @@ import CampoRut from "../components/form/CampoRut";
 import CampoDireccion from "../components/form/CampoDireccion";
 import CampoContrasenna from "../components/form/CampoContrasenna";
 import CampoEmail from "../components/form/CampoEmail";
-import guardarFormulario from "../utils/persistencia.js";
+import { guardarFormulario } from "../utils/persistencia.js";
 
 const inicial = { nombre: "", 
                   apellido: "", 

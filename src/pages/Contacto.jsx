@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import CampoNombreYApellido from "../components/form/CampoNombreYApellido";
 import CampoEmail from "../components/form/CampoEmail";
 import CampoComentario from "../components/form/CampoComentario";
-import guardarFormulario from "../utils/persistencia.js";
+import { guardarFormulario } from "../utils/persistencia.js";
 
 const inicial = { nombre: "", 
                   apellido: "",  
