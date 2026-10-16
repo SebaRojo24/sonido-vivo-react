@@ -1,15 +1,15 @@
-export function validacionRut(valor) {
-
-    if (!valor || typeof valor !== "string") return false;
+export function validacionFormatoRut(valor) {
 
     const formatoRut = /^[0-9]{7,8}[0-9Kk]$/; 
     
     const rut = valor.trim();
 
-    if (!formatoRut.test(rut)) { 
-        return false; 
-    } 
-    
+    return formatoRut.test(rut); 
+} 
+
+
+export function validacionRut(rut) {
+
     const cuerpo = rut.slice(0, -1); 
     const digitoIngresado = rut.slice(-1).toUpperCase(); 
     let suma = 0; 
@@ -27,4 +27,7 @@ export function validacionRut(valor) {
     if (resto === 10) digitoCalculado = "K"; 
     
     return digitoIngresado === digitoCalculado;; 
-  } 
+  }
+
+  export default { validacionFormatoRut, validacionRut
+  };
