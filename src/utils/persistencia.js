@@ -8,7 +8,6 @@ export function guardarCarritoLocalStorage(datos) {
   );
 }
 
-
 export function guardarFormulario(registro, nuevo) {
   const registroExistente = localStorage.getItem(registro);
   
@@ -20,4 +19,9 @@ export function guardarFormulario(registro, nuevo) {
     registro,
     JSON.stringify(lista)
   );
+}
+
+export function obtenerFormulario(clave) {
+  const datos = localStorage.getItem(clave);
+  return datos ? JSON.parse(datos) : [];
 }

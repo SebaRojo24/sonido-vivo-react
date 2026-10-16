@@ -27,6 +27,9 @@ function AdminDashboard() {
           <Link to="/admin/productos" className="btn btn-primary">
             ➕ Gestionar Productos
           </Link>
+          <Link to="/AdminUsuarios" className="btn btn-primary">
+            Usuarios
+          </Link>
           <Link to="/" className="btn btn-outline-secondary">
             🏪 Ir a la Tienda
           </Link>
