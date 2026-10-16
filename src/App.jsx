@@ -19,7 +19,7 @@ import PiePagina from "./components/PiePagina";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProductos from "./pages/admin/AdminProductos";
 import AdminUsuarios from "./pages/admin/AdminUsuarios";
-import Registro from "./pages/Signup";
+import Registro from "./pages/Registro";
 import Login from "./pages/Login";
 
 function App() {

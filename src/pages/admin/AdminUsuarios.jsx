@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Modal } from "react-bootstrap";
-
-import Registro from "../Signup.jsx";
+import Registro from "../Registro.jsx";
 import TablaUsuarios from "../../components/TablaUsuarios.jsx";
-// Importamos también guardarFormulario para mantener la coherencia
 import { obtenerFormulario, guardarFormulario } from "../../utils/persistencia.js";
 
 function AdminUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  // 1. Cargar la lista inicial desde localStorage
   useEffect(() => {
     const datosGuardados = obtenerFormulario("usuarios");
     setUsuarios(datosGuardados || []);
@@ -19,9 +16,8 @@ function AdminUsuarios() {
   const abrirModal = () => setShowModal(true);
   const cerrarModal = () => setShowModal(false);
 
-  // 2. Guardar usando la función helper centralizada
+
   const agregarUsuario = (nuevoUsuario) => {
-    // guardarFormulario agrega el registro al arreglo de LS y retorna la lista actualizada
     const listaActualizada = guardarFormulario("usuarios", nuevoUsuario);
     setUsuarios(listaActualizada);
     cerrarModal();
