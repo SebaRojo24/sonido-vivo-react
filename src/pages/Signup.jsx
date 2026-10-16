@@ -6,7 +6,10 @@ import CampoRut from "../components/form/CampoRut";
 import CampoDireccion from "../components/form/CampoDireccion";
 import CampoContrasenna from "../components/form/CampoContrasenna";
 import CampoEmail from "../components/form/CampoEmail";
-import { guardarFormulario } from "../utils/persistencia.js";
+import { guardarFormulario } from "../utils/persistencia";
+import { texto, textoMinimo, textoMaximo, letras, letrasYNumeros, letrasYSimbolos } from "../utils/validacionesTexto";
+import { validacionFormatoRut, validacionRut} from "../utils/validacionesRut";
+import { arrobaEmail, dominioEmail } from "../utils/validacionesEmail";
 
 const inicial = { nombre: "", 
                   apellido: "", 
@@ -32,16 +35,40 @@ function Registro() {
     evento.preventDefault(); 
     const nuevosErrores = {}; 
  
-    //Insertar TODAS las validaciones desde funciones
-    if (!datos.nombre.trim()) nuevosErrores.nombre = "Nombre obligatorio"; 
-    if (!datos.apellido.trim()) nuevosErrores.apellido = "Apellido obligatorio";
+    //Validaciones
+
+    //Nombre
+    if (!textoMinimo(datos.nombre, 0)) nuevosErrores.nombre = "Nombre obligatorio"
+    else if (!letras(datos.nombre)) nuevosErrores.nombre = "El nombre solo puede contener letras"
+    else if (!textoMaximo(datos.nombre, 100)) nuevosErrores.nombre = "El nombre no puede exceder 100 caracteres";
+    //Apellido
+    if (!textoMinimo(datos.apellido, 0)) nuevosErrores.apellido = "Apellido obligatorio"
+    else if (!letras(datos.apellido)) nuevosErrores.apellido = "El apellido solo puede contener letras"
+    else if (!textoMaximo(datos.apellido, 100)) nuevosErrores.apellido = "El apellido no puede exceder 100 caracteres";
+    //RUT
+    if (!textoMinimo(datos.rut, 0)) nuevosErrores.rut = "Rut obligatorio"
+    else if (!textoMinimo(datos.rut, 7) || !textoMaximo (datos.rut, 9)) nuevosErrores.rut = "El rut debe contener entre 7 y 9 caracteres"
+    else if (!validacionFormatoRut(datos.rut)) nuevosErrores.rut = "Ingrese RUT sin puntos ni guión"
+    else if (!validacionRut(datos.rut)) nuevosErrores.rut = "Rut inválido";
+    //Email
+    if (!textoMinimo(datos.email, 0)) nuevosErrores.email = "Email obligatorio"
+    else if (!arrobaEmail(datos.email)) nuevosErrores.email = "El Email debe contener un @"
+    else if (!dominioEmail(datos.email)) nuevosErrores.email = "El email debe ser @gmail.com, @duoc.cl o @profesor.duoc.cl"
+    else if (!textoMaximo(datos.email, 100)) nuevosErrores.email = "El email no puede exceder 100 caracteres";
+    //Dirección
+    if (!textoMinimo(datos.direccion, 0)) nuevosErrores.direccion = "Dirección obligatoria"
+    else if (!letrasYNumeros(datos.direccion)) nuevosErrores.direccion = "La dirección solo puede contener letras y números"
+    else if (!textoMaximo(datos.direccion, 300)) nuevosErrores.direccion = "El email no puede exceder 300 caracteres";
+    //Contraseña
+    if (!textoMinimo(datos.contrasenna, 0)) nuevosErrores.contrasenna = "Contraseña obligatoria" 
+    else if (!textoMinimo(datos.contrasenna, 3) || !textoMaximo(datos.contrasenna, 10)) nuevosErrores.contrasenna = "La contraseña debe contener entre 4 y 10 caracteres"
  
     setErrores(nuevosErrores); 
     if (Object.keys(nuevosErrores).length > 0) return; 
 
     //Guardado de datos usando función de persistencia en LS:
     guardarFormulario("usuarios", datos);
-
+ 
     setDatos(inicial); 
   } 
  

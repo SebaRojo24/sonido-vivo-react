@@ -25,7 +25,6 @@ function Login() {
     setErrores(nuevosErrores); 
     if (Object.keys(nuevosErrores).length > 0) return; 
  
-    onGuardar({ ...datos}); 
     setDatos(inicial); 
   }  
 
