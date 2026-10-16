@@ -18,6 +18,7 @@ import NoEncontrada from "./pages/NoEncontrada";
 import PiePagina from "./components/PiePagina";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProductos from "./pages/admin/AdminProductos";
+import AdminUsuarios from "./pages/admin/AdminUsuarios";
 import Registro from "./pages/Signup";
 import Login from "./pages/Login";
 
@@ -76,6 +77,7 @@ function App() {
           <Route path="/admin/productos" element={<AdminProductos />} />
           <Route path="/pago-exitoso" element={<PagoExitoso />} />
           <Route path="/pago-error" element={<PagoError />} />
+          <Route path="/adminusuarios" element={<AdminUsuarios />} />
           <Route path="*" element={<NoEncontrada />} />
         </Routes>
       </main>
