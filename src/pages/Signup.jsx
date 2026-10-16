@@ -7,7 +7,7 @@ import CampoDireccion from "../components/form/CampoDireccion";
 import CampoContrasenna from "../components/form/CampoContrasenna";
 import CampoEmail from "../components/form/CampoEmail";
 import { guardarFormulario } from "../utils/persistencia";
-import { texto, textoMinimo, textoMaximo, letras, letrasYNumeros, letrasYSimbolos } from "../utils/validacionesTexto";
+import { textoMinimo, textoMaximo, letras, letrasYNumeros } from "../utils/validacionesTexto";
 import { validacionFormatoRut, validacionRut} from "../utils/validacionesRut";
 import { arrobaEmail, dominioEmail } from "../utils/validacionesEmail";
 
