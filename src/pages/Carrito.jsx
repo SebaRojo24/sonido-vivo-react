@@ -5,7 +5,7 @@ function Carrito({ productosCarrito, onEliminar }) {
   if (productosCarrito.length === 0) {
     return (
       <div className="container mt-5 text-center">
-        <h2 className="mb-4">Tu Carrito está vacío 🛒</h2>
+        <h2 className="mb-4 text-center text-dark fw-bold">Tu Carrito está vacío 🛒</h2>
         <p className="text-muted">Aún no has agregado ningún instrumento musical a tu selección.</p>
         <Link to="/productos" className="btn btn-primary mt-3">
           Ir al Catálogo de Productos
@@ -16,7 +16,7 @@ function Carrito({ productosCarrito, onEliminar }) {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4 text-center fw-bold">Carrito de Compras</h2>
+      <h2 className="mb-4 text-center text-dark fw-bold">Carrito de Compras</h2>
       <div className="card shadow-sm p-4">
         <ul className="list-group list-group-flush mb-4">
           {/* Recorremos el arreglo de estado que viene desde App.jsx */}

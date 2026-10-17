@@ -51,7 +51,7 @@ function FormularioProducto({ onGuardar }) {
 
   return (
     <Form onSubmit={enviar} noValidate className="card p-4 shadow-sm mb-4">
-      <h4 className="mb-3">Nuevo Producto</h4>
+      <h4 className="mb-4 text-center text-dark fw-bold">Nuevo Producto</h4>
 
       {/* Nombre */}
       <Form.Group className="mb-3" controlId="nombre">

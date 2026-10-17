@@ -7,7 +7,7 @@ function Blog() {
     <Container className="py-5">
       {/* Sección Hero */}
       <section className="text-center mb-5 bg-light p-4 rounded shadow-sm">
-        <h1 className="display-5 fw-bold mb-3">NOTICIAS IMPORTANTES</h1>
+        <h1 className="mb-4 text-center text-dark fw-bold">NOTICIAS IMPORTANTES</h1>
         <p className="lead text-muted mb-0">
           Entérate de las últimas novedades, tips de mantenimiento y datos curiosos del mundo musical.
         </p>
