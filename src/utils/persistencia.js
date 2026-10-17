@@ -14,14 +14,14 @@ export function guardarFormulario(registro, nuevo) {
   const lista = registroExistente ? JSON.parse(registroExistente) : [];
   
   lista.push(nuevo);
-  
+
   localStorage.setItem(
     registro,
     JSON.stringify(lista)
   );
 }
 
-export function obtenerFormulario(clave) {
+export function obtenerRegistro(clave) {
   const datos = localStorage.getItem(clave);
   return datos ? JSON.parse(datos) : [];
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import { Form } from "react-bootstrap";
 
 function CampoCategoria({ datos, errores, onChange }) {
   return (
@@ -7,7 +7,7 @@ function CampoCategoria({ datos, errores, onChange }) {
       <Form.Label>Categoría:</Form.Label>
       <Form.Select
         name="categoria"
-        value={datos.categoria || ''}
+        value={datos.categoria || ""}
         onChange={onChange}
         isInvalid={Boolean(errores.categoria)}
       >
