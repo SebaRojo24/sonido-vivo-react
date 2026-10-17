@@ -2,49 +2,49 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const inicial = {
-  nombre: "",
-  categoria: "",
-  precio: "",
+  name: "",
+  category: "",
+  price: "",
   stock: "",
-  descripcion: "",
-  imagen: ""
+  description: "",
+  image: "",
+  isOffer: false
 };
 
 function FormularioProducto({ onGuardar }) {
   const [datos, setDatos] = useState(inicial);
   const [errores, setErrores] = useState({});
 
-  // Manejador único para actualizar los inputs por el atributo name
   function cambiar(evento) {
-    const { name, value } = evento.target;
-    setDatos({ ...datos, [name]: value });
+    const { name, value, type, checked } = evento.target;
+    setDatos({
+      ...datos,
+      [name]: type === 'checkbox' ? checked : value
+    });
   }
 
   function enviar(evento) {
     evento.preventDefault();
     const nuevosErrores = {};
 
-    // Validaciones
-    if (!datos.nombre.trim()) nuevosErrores.nombre = "El nombre es obligatorio";
-    if (!datos.categoria) nuevosErrores.categoria = "Selecciona una categoría";
-    if (!datos.precio || Number(datos.precio) <= 0) nuevosErrores.precio = "El precio debe ser un número positivo";
+    // Validaciones básicas
+    if (!datos.name.trim()) nuevosErrores.name = "El nombre es obligatorio";
+    if (!datos.category) nuevosErrores.category = "Selecciona una categoría";
+    if (!datos.price || Number(datos.price) <= 0) nuevosErrores.price = "El precio debe ser un número positivo";
     if (datos.stock === "" || Number(datos.stock) < 0) nuevosErrores.stock = "El stock no puede ser negativo";
-    if (!datos.descripcion.trim()) nuevosErrores.descripcion = "La descripción es obligatoria";
+    if (!datos.description.trim()) nuevosErrores.description = "La descripción es obligatoria";
 
     setErrores(nuevosErrores);
 
-    // Si existen errores, se detiene la ejecución
     if (Object.keys(nuevosErrores).length > 0) return;
 
-    // Enviar objeto validado con conversión a número
     onGuardar({
       ...datos,
-      precio: Number(datos.precio),
+      price: Number(datos.price),
       stock: Number(datos.stock),
-      imagen: datos.imagen.trim() || '/img/productos/default.jpg'
+      image: datos.image.trim() || '/img/productos/default.jpg'
     });
 
-    // Reiniciar el formulario
     setDatos(inicial);
     setErrores({});
   }
@@ -53,60 +53,61 @@ function FormularioProducto({ onGuardar }) {
     <Form onSubmit={enviar} noValidate className="card p-4 shadow-sm mb-4">
       <h4 className="mb-4 text-center text-dark fw-bold">Nuevo Producto</h4>
 
-      {/* Nombre */}
-      <Form.Group className="mb-3" controlId="nombre">
+      {/* Name */}
+      <Form.Group className="mb-3" controlId="name">
         <Form.Label>Nombre del Producto</Form.Label>
         <Form.Control
           type="text"
-          name="nombre"
-          value={datos.nombre}
+          name="name"
+          value={datos.name}
           onChange={cambiar}
-          isInvalid={Boolean(errores.nombre)}
-          placeholder="Ej: Guitarra Eléctrica Fender Stratocaster"
+          isInvalid={Boolean(errores.name)}
+          placeholder="Ej: Guitarra Acústica Folk Yamaha F310"
         />
         <Form.Control.Feedback type="invalid">
-          {errores.nombre}
+          {errores.name}
         </Form.Control.Feedback>
       </Form.Group>
 
       <div className="row">
-        {/* Categoría */}
+        {/* Category */}
         <div className="col-md-6 mb-3">
-          <Form.Group controlId="categoria">
+          <Form.Group controlId="category">
             <Form.Label>Categoría</Form.Label>
             <Form.Select
-              name="categoria"
-              value={datos.categoria}
+              name="category"
+              value={datos.category}
               onChange={cambiar}
-              isInvalid={Boolean(errores.categoria)}
+              isInvalid={Boolean(errores.category)}
             >
               <option value="">-- Selecciona Categoría --</option>
-              <option value="Guitarras">Guitarras</option>
+              <option value="Guitarras Acústicas">Guitarras Acústicas</option>
+              <option value="Guitarras Eléctricas">Guitarras Eléctricas</option>
               <option value="Bajos">Bajos</option>
               <option value="Baterías">Baterías</option>
               <option value="Teclados">Teclados</option>
               <option value="Audio">Audio y Amplificación</option>
             </Form.Select>
             <Form.Control.Feedback type="invalid">
-              {errores.categoria}
+              {errores.category}
             </Form.Control.Feedback>
           </Form.Group>
         </div>
 
-        {/* Precio */}
+        {/* Price */}
         <div className="col-md-3 mb-3">
-          <Form.Group controlId="precio">
+          <Form.Group controlId="price">
             <Form.Label>Precio ($)</Form.Label>
             <Form.Control
               type="number"
-              name="precio"
-              value={datos.precio}
+              name="price"
+              value={datos.price}
               onChange={cambiar}
-              isInvalid={Boolean(errores.precio)}
-              placeholder="Ej: 590000"
+              isInvalid={Boolean(errores.price)}
+              placeholder="Ej: 129990"
             />
             <Form.Control.Feedback type="invalid">
-              {errores.precio}
+              {errores.price}
             </Form.Control.Feedback>
           </Form.Group>
         </div>
@@ -114,14 +115,14 @@ function FormularioProducto({ onGuardar }) {
         {/* Stock */}
         <div className="col-md-3 mb-3">
           <Form.Group controlId="stock">
-            <Form.Label>Cupos / Stock</Form.Label>
+            <Form.Label>Stock</Form.Label>
             <Form.Control
               type="number"
               name="stock"
               value={datos.stock}
               onChange={cambiar}
               isInvalid={Boolean(errores.stock)}
-              placeholder="Ej: 5"
+              placeholder="Ej: 8"
             />
             <Form.Control.Feedback type="invalid">
               {errores.stock}
@@ -130,24 +131,52 @@ function FormularioProducto({ onGuardar }) {
         </div>
       </div>
 
-      {/* Descripción */}
-      <Form.Group className="mb-3" controlId="descripcion">
+      <div className="row">
+        {/* Image */}
+        <div className="col-md-8 mb-3">
+          <Form.Group controlId="image">
+            <Form.Label>URL / Ruta de Imagen</Form.Label>
+            <Form.Control
+              type="text"
+              name="image"
+              value={datos.image}
+              onChange={cambiar}
+              placeholder="Ej: /img/productos/yamaha-f310.jpg"
+            />
+          </Form.Group>
+        </div>
+
+        {/* IsOffer */}
+        <div className="col-md-4 mb-3 d-flex align-items-end pb-2">
+          <Form.Check
+            type="switch"
+            id="isOffer"
+            name="isOffer"
+            label="¿Producto en Oferta?"
+            checked={datos.isOffer}
+            onChange={cambiar}
+          />
+        </div>
+      </div>
+
+      {/* Description */}
+      <Form.Group className="mb-3" controlId="description">
         <Form.Label>Descripción</Form.Label>
         <Form.Control
           as="textarea"
           rows={3}
-          name="descripcion"
-          value={datos.descripcion}
+          name="description"
+          value={datos.description}
           onChange={cambiar}
-          isInvalid={Boolean(errores.descripcion)}
-          placeholder="Descripción detallada del instrumento..."
+          isInvalid={Boolean(errores.description)}
+          placeholder="Ej: Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes."
         />
         <Form.Control.Feedback type="invalid">
-          {errores.descripcion}
+          {errores.description}
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Button type="submit" variant="primary">
+      <Button type="submit" variant="primary" className="w-100 fw-bold">
         Guardar Producto
       </Button>
     </Form>
