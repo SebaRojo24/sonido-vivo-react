@@ -15,7 +15,9 @@ function Navegacion() {
             <NavLink className="nav-link" to="/blog">Blogs</NavLink>
             <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
             <NavLink className="nav-link" to="/login">Iniciar sesión</NavLink>
+            <NavLink className="nav-link" to="/signup">Registrarse</NavLink>
             <NavLink className="nav-link" to="/carrito">🛒 Carrito</NavLink>
+            <Nav.Link as={NavLink} to="/admin" className="fw-bold text-primary">⚙️ Admin</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
