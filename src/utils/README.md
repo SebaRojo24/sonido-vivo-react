@@ -12,4 +12,9 @@ persistencia.spec.jsx
     guardarFormulario   :   comprueba que, al guardar datos, se llame a la función de guardarFormulario con un mock.
     obtenerRegistro     :   comprueba que, al leer datos, se llame a la función obtenerRegistro con un mock.
 
+Nuevos tests:
 
+    Verificar el cambio de estado en formularios al agregar texto.
+    Verificar que se ejecute un error solo cuando hay error
+    Verificar el cambio de estado en una página al ejecutarse una acción
+    

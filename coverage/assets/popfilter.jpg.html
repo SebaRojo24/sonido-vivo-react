@@ -1,0 +1,283 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for assets/popfilter.jpg</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">assets</a> popfilter.jpg</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">���� �Exif  II*     < <   <   < <   b   < <   j   (< <   <   &lt;<> 	   r   > <   <   i� <   |       <   <   <   <   imagery4    �    0210<�    <>  �    0100<� <   ��  >� <   ,<  � <   ,<      ��Nhttp://ns.adobe.com/xap/1.0/ &lt;?xpacket begin='﻿' id='W5M0MpCehiHzreSzNTczkc9d'?&gt;
+&lt;x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Image::ExifTool 12.98'&gt;
+&lt;rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'&gt;
+&nbsp;
+ &lt;rdf:Description rdf:about=''
+  xmlns:pdf='http://ns.adobe.com/pdf/1.3/'&gt;
+  &lt;pdf:Producer&gt;Online-Convert&lt;/pdf:Producer&gt;
+ &lt;/rdf:Description&gt;
+&nbsp;
+ &lt;rdf:Description rdf:about=''
+  xmlns:tiff='http://ns.adobe.com/tiff/1.0/'&gt;
+  &lt;tiff:BitsPerSample&gt;
+   &lt;rdf:Seq&gt;
+    &lt;rdf:li&gt;8&lt;/rdf:li&gt;
+   &lt;/rdf:Seq&gt;
+  &lt;/tiff:BitsPerSample&gt;
+  &lt;tiff:YCbCrSubSampling&gt;
+   &lt;rdf:Seq&gt;
+    &lt;rdf:li&gt;2&lt;/rdf:li&gt;
+    &lt;rdf:li&gt;2&lt;/rdf:li&gt;
+   &lt;/rdf:Seq&gt;
+  &lt;/tiff:YCbCrSubSampling&gt;
+ &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;
+&lt;/x:xmpmeta&gt;
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+&lt;?xpacket end='w'?&gt;�� C (#(#!#-+(0&lt;dA&lt;77&lt;{X]Id�����������à�ڭ������������������������ C<+--&lt;5&lt;vAAv�������������������������������������������������������� <,<,<" ><<��  < ><            <>�� = ><<<    <>!1AQ"aq�24Rr��b��#3B�CS��$%5����� <<<               <�� <                �� < > ? �   E��+h椷���=֩Z�c�â���Z�
+�*E&gt;�YJ����7/&lt;}�}L�)&gt;;��-^��*�F���?�q䑡R\ْ�6�J��ߚF������V�C��0:T��­&amp;�b�]�{o_t*,�{��)./+�Ճ��j5�amm���ν��+���O�_,�                       ��F43N�%S��5��.�'�G��?��]�9άܤܤ��U.l�(��@b��,>@��� � ��x����R���JP�yi�
+ٌ���GJ�RSj�v��)�~gL�8����}��e��$��<�                    +�ܫj_��Ex�?������>��*�m��|�Ў��0��Cj 1�(H@<Ȑ <��N�20H�QM`Շ	z2�'���;:u��h�O���/�����x���K�=i���`H                 
+��^��m&lt;J]��&lt;�[RH�ks:t�%��u%����Q&lt;�Q� &gt; $H�rA("	 G�(���Z $} �R;3�gkJ��Z������r95Va���"��ˇ)��A�                 
+N[W�&lt;0�CU-�&amp;����ɦ���	��<� g H <;�d	� �Ā�<�<Y�^62ټ�� &gt;&gt;�x4Q{5��Mz�zp                 r�l�V_��a��3գ�}'�$�t���>F>��   <�X$`( ���	H	 =Ɗ۸��^��FL�O����Y�z0                 �j��uW��澧v�okR�����&lt;�9l�g���
+7�� s   > 0 �@q I� �Y���ZѩmV�W�+͔*�jo��h:�Mw��a�                 �m�\v�]ʛ��3�i����	S�&gt;��J[Q�4l[����8MbQ{��r��H�9x�((�����>Z�� ��gs>x4� �H�[�]@�]Y��řNJ+/v
+�N�U��O	Xӭ�r��r;�� �+��+Z
+|��&gt;��                    =B�]S�p���}|~�G&amp;��4�RT���w��E�H&lt;d��gѪ���vf�_&amp;�?!�@�Č�� %��dm<�'��d�x��w�y�Fw<������%Y-��aN�[��0����2��I$�orH��?��iQ'V_���VZ|-�Ա*�O"�                        U�
+�p�(�L�\�
+fV���$�� yj��F[5#(?F�==EJ*K�9�6vimN.�xl&gt;/�;��!��^@ٴNтM�:zg�h����{�@���R��`�7�,��ZU�7�)M�f[�8S��"��%�9�L�W���W�F�:٥���             >�K�4�[[R\��V��&lt;��N��@:%;��(*n��[ωNW�y�%�/ܯ^㵇~����jڷoB51��F⎕,�C�~��          0���M����MN/-"��~��
+��kr�M�Il��h��^~0I')��"���s�[S�<Z\����:����3����?3+�ޣ�(�8���]             <Z��6��R^� 3���o��|"���s�N�i�/�/��4U�R�W��R[�^���Y�q�S�JS�y/��J����E�u���H�\�/�İ�����_��U�+PQu#�凓�5Ob��
+&amp;�b߰�:E=+���KԸ            ���7S;�p��]̜ԚYF�B�H�Ur�[R�}Q[bK�`Y��� �%��Xg�&lt;��	;�{���=            nk�ދ���]_C�^�J�d��Iq�/o���뽗܆�x�l��������?�
+�u�����j����   u?b��/u?b��-+���KԸS���?4�K�            V�K�5����u7����(T��n��(����[҅*1Q�[�|M�           )�w��Qx����p�Zݥ��{��}@�mE�\B����s="��$����������^GL    <KRY�?6])��4���{�~iz�ʚw��旫-�           <������歷V�� 2�=5e�3]b�/I�Q}Հ�          �J1r|�&lt;Ĥ�NS|d�;���,��ml��-�&gt;��99 ;ִ�zp��f�     o��y��׾�&lt;��N�8��Ֆʺw�C�^��            <��U�fR]G�&lt;��vn�.�`z
+2ڣ	u�f®�=�*O��ش          7X�-��Y*�0ڻ��bٷY�jӏE�=�Y�i<�      *߼Fe������`e�{�&lt;߫-t�q���g2��w:m�Kw�a�QR�u`�M�lM5��8��|L�/'iY&amp;ۦ�y~�zBi���d�        8��=�ͮS�c�su�[T!QC��`N�S4'�Y��������	�}N�         g%JO�Y��On��q��!�e͙Y7V�|��GJ�(AJH�     
+w��?6\4^B2�)=�;�{
+�Z|"�B2���og�Ж̜_Ge3�o�HO	<;O��m��L����,�S�t�Hʤ`��-b�9�q�$�S=��n(*��@�        aZ��Ft�	,�&lt;�z�^���Q���U�F�xId�j��5h���?2t���:{�����        (j��(vI���ȹR�iA�O	#��V��w7ς�ߦP�.T��ü� c�U���=�Mw�E�      ��r��y_P��(u�3&amp;�X!F2�u^v�er�5� n~l�[E�*�QO�Ϊ�b���9�'�Y��C�          iƭ9Bk)��ף;j�2�����f��X\�ķIp�@5X�*�P��E��=V�KZ�3Mczk����U���~��1�HTY����2   c)(Ź4��٪��*;��/�og*��u����~�M�㸖�?��.��2�nJ��u{&gt;,���W۩�O� ����F+	nH�       
+��Ņ_/ܴV�#�eUxd4�2�3��@�O� �F�97��V���3�Kir@vt?���zC���MU��t��            �Q�^5#��ski�"ܨ�k��gX<�[�FX�Z�빛�}Z?�?�NԒk
+&amp;�M_��&gt;4a�@s?�k�� ��wRk�:����������j�iA} �S�^��P{&gt;���Z鐆%Y���p/�@%��          aR;t���0��,&gt;����O��I+Ky7)Q�o�h��[�O�Pg��!��[�\(���e��\)��<笫~�N�f���S�Sr�8���5�g�;1������</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-17T14:15:01.112Z
+            </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    

@@ -29,11 +29,11 @@ describe("Pruebas Unitarias Avanzadas - Flujos de Tienda (Román)", () => {
 
     // Simula que el usuario interactúa con el select interactivo cambiándolo a "Bajos"
     const selector = screen.getByRole("combobox");
-    await usuario.selectOptions(selector, "Bajos");
+    await usuario.selectOptions(selector, "Bajos Eléctricos");
 
     // Verifica que se aplicó el renderizado condicional del filtro
     expect(screen.queryByText("Guitarra Eléctrica")).not.toBeInTheDocument();
-    expect(screen.getByText("Bajo Eléctrico")).toBeInTheDocument();
+    expect(screen.getByText("Bajos Eléctricos")).toBeInTheDocument();
   });
 
   // Prueba 9: Espía de Persistencia Aislada (Guía 14 - Sección 6 Oficial)

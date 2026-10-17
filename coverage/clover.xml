@@ -1,61 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1792199155967" clover="3.2.0">
-  <project timestamp="1792199155968" name="All files">
-    <metrics statements="24" coveredstatements="23" conditionals="17" coveredconditionals="16" methods="12" coveredmethods="12" elements="53" coveredelements="51" complexity="0" loc="24" ncloc="24" packages="5" files="10" classes="10"/>
+<coverage generated="1792246501458" clover="3.2.0">
+  <project timestamp="1792246501458" name="All files">
+    <metrics statements="80" coveredstatements="74" conditionals="91" coveredconditionals="81" methods="26" coveredmethods="23" elements="197" coveredelements="178" complexity="0" loc="80" ncloc="80" packages="5" files="28" classes="28"/>
     <package name="assets">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="bajo.jpg" path="C:\Users\ACER\sonido-vivo-react\src\assets\bajo.jpg">
+      <file name="afinador.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\afinador.jpg">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="bateria.jpg" path="C:\Users\ACER\sonido-vivo-react\src\assets\bateria.jpg">
+      <file name="amplificador.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\amplificador.jpg">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="guitarra.jpg" path="C:\Users\ACER\sonido-vivo-react\src\assets\guitarra.jpg">
+      <file name="auriculares.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\auriculares.jpg">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="teclado.jpg" path="C:\Users\ACER\sonido-vivo-react\src\assets\teclado.jpg">
+      <file name="bajo.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\bajo.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="bateria.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\bateria.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="cable.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\cable.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="capo.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\capo.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="cuerdas.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\cuerdas.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="guitarra.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\guitarra.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="guitarraAcu.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\guitarraAcu.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="microfono.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\microfono.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="monitor.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\monitor.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="pedal.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\pedal.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="popfilter.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\popfilter.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="pua.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\pua.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="soporte.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\soporte.jpg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="teclado.jpg" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\assets\teclado.jpg">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="components">
-      <metrics statements="2" coveredstatements="2" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
-      <file name="ProductoCard.jsx" path="C:\Users\ACER\sonido-vivo-react\src\components\ProductoCard.jsx">
+      <metrics statements="7" coveredstatements="5" conditionals="9" coveredconditionals="6" methods="5" coveredmethods="4"/>
+      <file name="CarruselOfertas.jsx" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\components\CarruselOfertas.jsx">
+        <metrics statements="5" coveredstatements="3" conditionals="4" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="7" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+      <file name="ProductoCard.jsx" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\components\ProductoCard.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
-        <line num="5" count="8" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
       </file>
     </package>
     <package name="data">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="productosData.js" path="C:\Users\ACER\sonido-vivo-react\src\data\productosData.js">
+      <file name="productosData.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\data\productosData.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
     </package>
     <package name="pages">
       <metrics statements="12" coveredstatements="11" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="6"/>
-      <file name="DetalleProducto.jsx" path="C:\Users\ACER\sonido-vivo-react\src\pages\DetalleProducto.jsx">
+      <file name="DetalleProducto.jsx" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\pages\DetalleProducto.jsx">
         <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="50" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
       </file>
-      <file name="Productos.jsx" path="C:\Users\ACER\sonido-vivo-react\src\pages\Productos.jsx">
+      <file name="Productos.jsx" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\pages\Productos.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
       </file>
     </package>
     <package name="utils">
-      <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
-      <file name="persistencia.js" path="C:\Users\ACER\sonido-vivo-react\src\utils\persistencia.js">
+      <metrics statements="60" coveredstatements="57" conditionals="76" coveredconditionals="70" methods="15" coveredmethods="13"/>
+      <file name="persistencia.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\persistencia.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="5" count="1" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
@@ -65,10 +112,73 @@
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
       </file>
-      <file name="precio.js" path="C:\Users\ACER\sonido-vivo-react\src\utils\precio.js">
+      <file name="precio.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\precio.js">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="9" type="stmt"/>
+        <line num="3" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="8" type="stmt"/>
+      </file>
+      <file name="validacionesEmail.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\validacionesEmail.js">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="3" count="26" type="stmt"/>
+        <line num="8" count="25" type="cond" truecount="3" falsecount="0"/>
+        <line num="11" count="25" type="stmt"/>
+      </file>
+      <file name="validacionesRut.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\validacionesRut.js">
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="3" count="24" type="stmt"/>
+        <line num="5" count="24" type="stmt"/>
+        <line num="7" count="24" type="stmt"/>
+        <line num="13" count="24" type="stmt"/>
+        <line num="14" count="24" type="stmt"/>
+        <line num="15" count="24" type="stmt"/>
+        <line num="16" count="24" type="stmt"/>
+        <line num="18" count="24" type="stmt"/>
+        <line num="19" count="168" type="stmt"/>
+        <line num="20" count="168" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="24" type="stmt"/>
+        <line num="24" count="24" type="stmt"/>
+        <line num="26" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="24" type="stmt"/>
+      </file>
+      <file name="validacionesTexto.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\validacionesTexto.js">
+        <metrics statements="9" coveredstatements="6" conditionals="10" coveredconditionals="8" methods="6" coveredmethods="4"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="7" count="269" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="149" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="52" type="stmt"/>
+        <line num="19" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="26" type="stmt"/>
+        <line num="26" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="validarRegistro.js" path="C:\Users\ACER\Desktop\sonido-vivo-react\src\utils\validarRegistro.js">
+        <metrics statements="24" coveredstatements="24" conditionals="51" coveredconditionals="49" methods="1" coveredmethods="1"/>
+        <line num="7" count="27" type="stmt"/>
+        <line num="9" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="26" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="26" type="cond" truecount="4" falsecount="0"/>
+        <line num="38" count="27" type="cond" truecount="4" falsecount="0"/>
+        <line num="40" count="27" type="stmt"/>
       </file>
     </package>
   </project>
