@@ -13,7 +13,7 @@ function Productos({ productos, onAgregar }) {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4 text-center fw-bold">Nuestro Catálogo de Instrumentos 🎸</h2>
+      <h2 className="mb-4 text-center text-dark fw-bold">Nuestro Catálogo de Instrumentos 🎸</h2>
 
       <CarruselOfertas productos={productos} />
 

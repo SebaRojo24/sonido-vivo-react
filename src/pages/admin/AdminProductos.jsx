@@ -34,7 +34,7 @@ function AdminProductos() {
       {/* Encabezado */}
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <div>
-          <h1 className="fw-bold mb-1">📦 Administración de Productos</h1>
+          <h1 className="mb-4 text-center text-dark fw-bold">📦 Administración de Productos</h1>
           <p className="text-secondary mb-0">Gestión de inventario y alta de nuevos productos</p>
         </div>
         <Link to="/admin" className="btn btn-outline-secondary">

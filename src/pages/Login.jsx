@@ -28,7 +28,7 @@ function Login() {
 
   return ( 
     <div className="container mt-4">
-      <h2>Iniciar Sesión</h2>
+      <h2 className="mb-4 text-center text-dark fw-bold">Iniciar Sesión</h2>
       <Form onSubmit={enviar} noValidate>
         <CampoEmail datos={datos} errores={errores} onChange={cambiar} />
         <CampoContrasenna datos={datos} errores={errores} onChange={cambiar} />

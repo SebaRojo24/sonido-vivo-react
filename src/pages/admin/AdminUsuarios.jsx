@@ -27,7 +27,7 @@ function AdminUsuarios() {
     <Container className="py-4">
       <Card className="shadow-sm p-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h2>Gestión de Usuarios</h2>
+          <h2 className="mb-4 text-center text-dark fw-bold">Gestión de Usuarios</h2>
           <Button variant="success" onClick={abrirModal}>
             + Nuevo Usuario
           </Button>

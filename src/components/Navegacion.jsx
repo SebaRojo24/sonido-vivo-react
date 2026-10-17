@@ -5,7 +5,7 @@ function Navegacion() {
   return (
     <Navbar expand="md" bg="light" data-bs-theme="light">
       <Container>
-        <Navbar.Brand as={Link} to="/">🎸 Sonido Vivo</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" classname="fw-bold text-primary">🎸 SONIDO VIVO</Navbar.Brand>
         <Navbar.Toggle aria-controls="menu-principal" />
         <Navbar.Collapse id="menu-principal">
           <Nav className="ms-auto">
@@ -16,7 +16,7 @@ function Navegacion() {
             <NavLink className="nav-link" to="/login">Iniciar sesión</NavLink>
             <NavLink className="nav-link" to="/registro">Registrarse</NavLink>
             <NavLink className="nav-link" to="/carrito">🛒 Carrito</NavLink>
-            <Nav.Link as={NavLink} to="/admin" className="fw-bold text-primary">⚙️ Admin</Nav.Link>
+            <NavLink className="nav-link" to="/admin" >⚙️ Admin</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
