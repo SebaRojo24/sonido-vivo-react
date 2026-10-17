@@ -1,31 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Table, Button, Badge, Alert, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import FormularioProducto from './FormularioProducto';
+import { getProducts, addProduct, deleteProduct, resetProducts } from '../../services/storageService';
 
 function AdminProductos() {
-  const [productos, setProductos] = useState([
-    { id: 1, nombre: 'Guitarra Eléctrica Fender Stratocaster', categoria: 'Guitarras', precio: 590000, stock: 5 },
-    { id: 2, nombre: 'Bajo Eléctrico Ibanez SR300', categoria: 'Bajos', precio: 320000, stock: 2 },
-    { id: 3, nombre: 'Batería Acústica Pearl Roadshow', categoria: 'Baterías', precio: 850000, stock: 1 }
-  ]);
-
+  const [productos, setProductos] = useState([]);
   const [mensaje, setMensaje] = useState('');
 
-  function guardar(nuevoProducto) {
-    const productoConId = {
-      ...nuevoProducto,
-      id: Date.now()
-    };
+  useEffect(() => {
+    setProductos(getProducts());
+  }, []);
 
-    setProductos([...productos, productoConId]);
-    setMensaje(`Producto "${nuevoProducto.nombre}" guardado con éxito.`);
+  function guardar(nuevoProducto) {
+    const listaActualizada = addProduct(nuevoProducto);
+    setProductos(listaActualizada);
+    setMensaje(`Producto guardado con éxito.`);
     setTimeout(() => setMensaje(''), 4000);
   }
 
   function eliminar(id) {
-    setProductos(productos.filter((p) => p.id !== id));
+    const listaActualizada = deleteProduct(id);
+    setProductos(listaActualizada);
     setMensaje('Producto eliminado del inventario.');
+    setTimeout(() => setMensaje(''), 4000);
+  }
+
+  function restaurar() {
+    const listaInicial = resetProducts();
+    setProductos(listaInicial);
+    setMensaje('Inventario restaurado a los datos iniciales.');
     setTimeout(() => setMensaje(''), 4000);
   }
 
@@ -35,11 +39,16 @@ function AdminProductos() {
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <div>
           <h1 className="fw-bold mb-1">📦 Administración de Productos</h1>
-          <p className="text-secondary mb-0">Gestión de inventario y alta de nuevos productos</p>
+          <p className="text-secondary mb-0">Gestión de inventario con persistencia en localStorage</p>
         </div>
-        <Link to="/admin" className="btn btn-outline-secondary">
-          ⬅️ Volver al Dashboard
-        </Link>
+        <div className="d-flex gap-2">
+          <Button variant="outline-warning" size="sm" onClick={restaurar}>
+            🔄 Restaurar Iniciales
+          </Button>
+          <Link to="/admin" className="btn btn-outline-secondary btn-sm">
+            ⬅️ Volver al Dashboard
+          </Link>
+        </div>
       </div>
 
       {mensaje && <Alert variant="success">{mensaje}</Alert>}
@@ -65,30 +74,37 @@ function AdminProductos() {
               </tr>
             </thead>
             <tbody>
-              {productos.map((p, index) => (
-                <tr key={p.id}>
-                  <td>{index + 1}</td>
-                  <td className="fw-medium">{p.nombre}</td>
-                  <td><Badge bg="secondary">{p.categoria}</Badge></td>
-                  <td>${p.precio.toLocaleString('es-CL')}</td>
-                  <td>
-                    {p.stock <= 2 ? (
-                      <Badge bg="danger">Crítico: {p.stock}</Badge>
-                    ) : (
-                      <Badge bg="success">{p.stock}</Badge>
-                    )}
-                  </td>
-                  <td>
-                    <Button 
-                      variant="outline-danger" 
-                      size="sm" 
-                      onClick={() => eliminar(p.id)}
-                    >
-                      Eliminar
-                    </Button>
-                  </td>
-                </tr>
-              ))}
+              {productos.map((p, index) => {
+                const nombre = p.name || p.nombre;
+                const categoria = p.category || p.categoria;
+                const precio = p.price || p.precio || 0;
+                const stock = p.stock ?? 0;
+
+                return (
+                  <tr key={p.id}>
+                    <td>{index + 1}</td>
+                    <td className="fw-medium">{nombre}</td>
+                    <td><Badge bg="secondary">{categoria}</Badge></td>
+                    <td>${precio.toLocaleString('es-CL')}</td>
+                    <td>
+                      {stock <= 2 ? (
+                        <Badge bg="danger">Crítico: {stock}</Badge>
+                      ) : (
+                        <Badge bg="success">{stock}</Badge>
+                      )}
+                    </td>
+                    <td>
+                      <Button 
+                        variant="outline-danger" 
+                        size="sm" 
+                        onClick={() => eliminar(p.id)}
+                      >
+                        Eliminar
+                      </Button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </Table>
         </Card.Body>
