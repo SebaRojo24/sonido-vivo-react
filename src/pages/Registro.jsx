@@ -58,7 +58,7 @@ function Registro({ onGuardar, onCancelar, esAdmin = false }) {
 
   return (
     <div className="container mt-2">
-      {!onGuardar && <h2>Registro de Usuario</h2>}
+      {!onGuardar && <h2 className="mb-4 text-center text-dark fw-bold">Registro de Usuario</h2>}
       <Form onSubmit={enviar} noValidate>
         <CampoNombreYApellido datos={datos} errores={errores} onChange={cambiar} />
         <CampoRut datos={datos} errores={errores} onChange={cambiar} />

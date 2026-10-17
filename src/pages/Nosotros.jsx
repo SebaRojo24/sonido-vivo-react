@@ -28,7 +28,7 @@ function Nosotros() {
       {/* Sección Hero / Historia */}
       <Row className="justify-content-center text-center mb-5">
         <Col lg={8}>
-          <h1 className="display-4 fw-bold mb-4">Nuestra Historia</h1>
+          <h1 className="mb-4 text-center text-dark fw-bold">Nuestra Historia</h1>
           <Image 
             src="/img/nosotros/nosotros1.jpg" 
             alt="Fachada de la tienda Sonido Vivo en Viña del Mar" 

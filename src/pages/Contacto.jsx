@@ -38,7 +38,7 @@ function Contacto() {
  
  return (
     <div className="container mt-4">
-      <h2>Formulario de Contacto</h2>
+      <h2 className="mb-4 text-center text-dark fw-bold">Formulario de Contacto</h2>
       <Form onSubmit={enviar} noValidate>
         <CampoNombreYApellido datos={datos} errores={errores} onChange={cambiar} />
         <CampoEmail datos={datos} errores={errores} onChange={cambiar} />

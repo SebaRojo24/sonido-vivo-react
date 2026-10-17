@@ -56,7 +56,7 @@ function Checkout({ vaciarCarrito }) {
 
   return (
     <div className="container mt-4" style={{ maxWidth: "600px" }}>
-      <h2 className="mb-4 text-center fw-bold">Formulario de Despacho y Pago</h2>
+      <h2 className="mb-4 text-center text-dark fw-bold">Formulario de Despacho y Pago</h2>
       <div className="card shadow-sm p-4">
         <form onSubmit={manejarEnvio} noValidate>
           

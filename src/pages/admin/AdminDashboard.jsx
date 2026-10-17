@@ -20,7 +20,7 @@ function AdminDashboard() {
       {/* Encabezado del Panel Admin */}
       <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
         <div>
-          <h1 className="fw-bold mb-1">🛠️ Panel Administrador</h1>
+          <h1 className="mb-4 text-center text-dark fw-bold">🛠️ Panel Administrador</h1>
           <p className="text-secondary mb-0">Resumen general de las actividades y métricas de Sonido Vivo</p>
         </div>
         <div className="d-flex gap-2">
