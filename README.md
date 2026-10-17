@@ -1,36 +1,37 @@
 # 🎸 Sonido Vivo - Tienda de Instrumentos Musicales
 
+Aplicación web interactiva para la tienda de música **Sonido Vivo**, desarrollada en **React** con **Bootstrap** y una suite completa de pruebas unitarias automatizadas con **Vitest**. Proyecto desarrollado para la Evaluación 2 de Desarrollo FullStack II en Duoc UC.
 
-📂 Estructura del Proyecto
-El código fuente está organizado bajo la carpeta src/ aplicando el principio de responsabilidad única (Single Responsibility):
+---
+
+## 📂 Estructura del Proyecto
+El código fuente está organizado bajo la carpeta `src/` aplicando principios de modularidad y responsabilidad única:
 
 sonido-vivo-react/
 ├── public/                 # Archivos estáticos y favicon
 ├── src/
-│   ├── assets/             # Imágenes de productos y logos de Sonido Vivo
-│   ├── components/         # Componentes reutilizables (Navbar, Footer, ProductCard, etc.)
-│   ├── pages/              # Vistas principales de la app (Home, Products, Cart, Admin, etc.)
-│   ├── data/               # Arreglos estáticos con información de prueba inicial
-│   │   └── productsData.js # Catálogo base de instrumentos
-│   ├── services/           # Lógica de persisetncia y funciones CRUD
-│   │   └── storageService.js # Métodos para leer/escribir en LocalStorage
-│   ├── tests/              # Pruebas unitarias con Jasmine / Karma
-│   ├── App.jsx             # Configuración principal de Rutas (React Router)
-│   ├── main.jsx            # Punto de entrada principal e importación de Bootstrap
-│   └── index.css           # Estilos globales personalizados
+│   ├── assets/             # Imágenes reales de productos (.jpg) y logos
+│   ├── components/         # Componentes atómicos reutilizables (Navbar, Footer, ProductoCard, etc.)
+│   ├── pages/              # Vistas de la aplicación (Inicio, Productos, Carrito, Checkout, Pago)
+│   ├── data/               # Colecciones de datos de prueba iniciales (productosData.js)
+│   ├── test/               # Archivo de configuración global de testing (setup.js)
+│   ├── utils/              # Funciones puras aisladas (precio.js, persistencia.js)
+│   ├── App.jsx             # Orquestador central de rutas (React Router)
+│   └── main.jsx            # Punto de entrada de la aplicación e inyección de estilos
 ├── package.json
 └── README.md
 
+---
 
-📜 Detalle de Archivos y Código Implementado
-A continuación se detalla la lógica inicial que ya se encuentra creada en el repositorio:
+## 📜 Código Fuente e Implementación Principal
 
+### 1. src/main.jsx
+Envoltura del enrutador global y carga de los estilos responsivos de Bootstrap:
 
-1. src/main.jsx
-Carga global de los estilos CSS y JavaScript interactivo de Bootstrap:
-
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from "react-router-dom";
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -38,13 +39,21 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 )
+```
 
+### 2. src/data/productosData.js
+Arreglo dinámico centralizado con la importación nativa de imágenes locales de instrumentos:
 
-2. src/data/productsData.js
-Arreglo inicial con productos de muestra de Sonido Vivo para poblar la vista del catálogo:
+```javascript
+import imgFender from "../assets/guitarra.jpg";
+import imgIbanez from "../assets/bajo.jpg";
+import imgYamaha from "../assets/teclado.jpg";
+import imgPearl from "../assets/bateria.jpg";
 
 export const initialProducts = [
   {
@@ -53,7 +62,7 @@ export const initialProducts = [
     category: 'Guitarras',
     price: 799990,
     description: 'Guitarra eléctrica icónica con tres cápsulas single-coil y cuerpo de aliso.',
-    image: '[https://via.placeholder.com/300x200?text=Fender+Stratocaster](https://via.placeholder.com/300x200?text=Fender+Stratocaster)',
+    image: imgFender,
     isOffer: false,
     stock: 5
   },
@@ -63,87 +72,140 @@ export const initialProducts = [
     category: 'Bajos',
     price: 349990,
     description: 'Bajo de 4 cuerdas con electrónica activa y mástil ultrarrápido.',
-    image: '[https://via.placeholder.com/300x200?text=Ibanez+SR300E](https://via.placeholder.com/300x200?text=Ibanez+SR300E)',
+    image: imgIbanez,
     isOffer: true,
     offerPrice: 299990,
     stock: 3
-  },
-  // ... más productos
-];
-
-
-3. src/services/storageService.js
-Servicio encargado de abstraer la comunicación con localStorage (CRUD simulado):
-
-import { initialProducts } from '../data/productsData';
-
-const PRODUCTS_KEY = 'sonido_vivo_products';
-
-export const getProducts = () => {
-  const data = localStorage.getItem(PRODUCTS_KEY);
-  if (!data) {
-    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(initialProducts));
-    return initialProducts;
   }
-  return JSON.parse(data);
-};
+];
+```
 
-export const saveProducts = (products) => {
-  localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
-};
+### 3. src/utils/persistencia.js
+Módulos reutilizables encargados de la persistencia de datos serializados en el navegador:
 
-
-4. src/App.jsx
-Sistema de enrutamiento base configurado con BrowserRouter:
-
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-function App() {
-  return (
-    <BrowserRouter>
-      {/* Barra de navegación de Bootstrap */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <Link className="navbar-brand fw-bold" to="/">Sonido Vivo</Link>
-          <div className="navbar-nav">
-            <Link className="nav-link" to="/">Inicio</Link>
-            <Link className="nav-link" to="/products">Productos</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Rutas principales */}
-      <main className="py-4">
-        <Routes>
-          <Route element="{<Home" path="/"/>} />
-          <Route element="{<Products" path="/products"/>} />
-        </Routes>
-      </main>
-    </BrowserRouter>
+```javascript
+export function guardarCarritoLocalStorage(datos) {
+  localStorage.setItem(
+    "carrito_productos",
+    JSON.stringify(datos)
   );
 }
 
+export function guardarFormulario(registro, nuevo) {
+  const registroExistente = localStorage.getItem(registro);
+  const lista = registroExistente ? JSON.parse(registroExistente) : [];
+  lista.push(nuevo);
+  localStorage.setItem(registro, JSON.stringify(lista));
+}
+```
 
+### 4. src/App.jsx
+Mapeo de rutas públicas de comercio electrónico y pasarela de pagos integradas con los formularios controlados:
 
+```jsx
+import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { initialProducts } from './data/productosData';
+import { guardarCarritoLocalStorage } from "./utils/persistencia";
+import Navegacion from "./components/Navegacion";
+import Inicio from "./pages/Inicio";
+import Productos from "./pages/Productos";
+import DetalleProducto from "./pages/DetalleProducto";
+import Carrito from "./pages/Carrito"; 
+import Checkout from "./pages/Checkout";
+import PagoExitoso from "./pages/PagoExitoso";
+import PagoError from "./pages/PagoError";
+import PiePagina from "./components/PiePagina";
 
-🌿 Flujo de Trabajo con Git y Ramas (Buenas Prácticas)
-Para evitar sobrescribir el trabajo de otros compañeros y mantener un historial limpio en GitHub:
+function App() {
+  const [carrito, setCarrito] = useState(() => {
+    const guardados = localStorage.getItem("carrito_productos");
+    return guardados ? JSON.parse(guardados) : [];
+  });
 
-Antes de empezar a programar, asegúrate de sincronizar la rama main:
-Bash
-git checkout main
-git pull origin main
+  useEffect(() => {
+    guardarCarritoLocalStorage(carrito);
+  }, [carrito]);
 
-Crea una nueva rama para la tarea específica que vas a realizar:
-Bash
-git checkout -b feature/nombre-de-tu-funcionalidad
-# Ejemplos: feature/navbar-footer, feature/catalogo-productos, feature/carrito
+  function agregarProducto(producto) {
+    const yaExiste = carrito.some((item) => item.id === producto.id);
+    if (yaExiste) return;
+    setCarrito([...carrito, producto]);
+  }
 
-Realiza commits pequeños y descriptivos:
-Bash
-git add .
-git commit -m "feat: agregada tarjeta de producto con boton de carrito"
+  function eliminarProducto(id) {
+    setCarrito(carrito.filter((item) => item.id !== id));
+  }
 
-Sube tu rama a GitHub:
-Bash
-git push origin feature/nombre-de-tu-funcionalidad
+  function limpiarCarrito() {
+    setCarrito([]);
+  }
+
+  return (
+    <>
+      <Navegacion />
+      <main className="py-4">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Productos productos={initialProducts} onAgregar={agregarProducto} />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/carrito" element={<Carrito productosCarrito={carrito} onEliminar={eliminarProducto} />} />
+          <Route path="/checkout" element={<Checkout vaciarCarrito={limpiarCarrito} />} />
+          <Route path="/pago-exitoso" element={<PagoExitoso />} />
+          <Route path="/pago-error" element={<PagoError />} />
+        </Routes>
+      </main>
+      <PiePagina />
+    </>
+  );
+}
+
+export default App;
+```
+
+---
+
+## 🧪 Comandos de Control de Calidad e Infraestructura
+
+Para levantar el entorno local, compilar o ejecutar el análisis de testing automatizado, ejecute los siguientes scripts en su terminal:
+
+* **Iniciar Servidor Local:**
+  ```bash
+  npm run dev
+  ```
+* **Ejecutar Suite de 10 Pruebas Unitarias:**
+  ```bash
+  npm run test:run
+  ```
+* **Calcular Porcentaje Estadístico de Cobertura (V8 Engine):**
+  ```bash
+  npm run coverage
+  ```
+* **Compilar Build de Producción para Despliegue:**
+  ```bash
+  npm run build
+  ```
+
+---
+
+## 🌿 Flujo de Trabajo Operativo con Git (Buenas Prácticas)
+Para mantener un historial seguro en el desarrollo colaborativo del equipo:
+
+1. Sincronizar la rama base común:
+   ```bash
+   git checkout develop
+   git pull origin develop
+   ```
+2. Crear un entorno de trabajo aislado:
+   ```bash
+   git switch -c feature/nombre-de-tu-funcionalidad
+   ```
+3. Registrar hitos atómicos:
+   ```bash
+   git add .
+   git commit -m "feat: implementar componente interactivo con estado"
+   ```
+4. Respaldar progreso en el servidor:
+   ```bash
+   git push origin feature/nombre-de-tu-funcionalidad
+   ```
