@@ -53,9 +53,8 @@ function App() {
       <Navegacion />
       <main className="py-4">
         <Routes>
-          <Route path="/" element={<Inicio />} />
           <Route
-            path="/productos"
+            path="/"
             element={<Productos productos={initialProducts} onAgregar={agregarProducto} />}
           />
           <Route path="/productos/:id" element={<DetalleProducto />} />
@@ -69,7 +68,7 @@ function App() {
           />
           <Route path="/nosotros" element={<Nosotros/>} />
           <Route path="/blog" element={<Blog/>} />
-          <Route path="/signup" element={<Registro/>} />
+          <Route path="/registro" element={<Registro/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/contacto" element={<Contacto/>} />
           <Route path="/blog/:id" element={<DetalleBlog/>} />
