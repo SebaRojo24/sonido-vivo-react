@@ -30,7 +30,7 @@ function TablaUsuarios({ usuarios }) {
             <td>{user.region}</td>
             <td>{user.comuna}</td>
             <td>{user.direccion}</td>
-            <td>{user.categoria || "-"}</td>
+            <td>{user.categoria}</td>
           </tr>
         ))}
       </tbody>

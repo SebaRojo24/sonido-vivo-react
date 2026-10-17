@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Modal } from "react-bootstrap";
 import Registro from "../Registro.jsx";
 import TablaUsuarios from "../../components/TablaUsuarios.jsx";
-import { obtenerFormulario, guardarFormulario } from "../../utils/persistencia.js";
+import { obtenerRegistro, guardarFormulario } from "../../utils/persistencia.js";
 
 function AdminUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const datosGuardados = obtenerFormulario("usuarios");
+    const datosGuardados = obtenerRegistro("usuarios");
     setUsuarios(datosGuardados || []);
   }, []);
 

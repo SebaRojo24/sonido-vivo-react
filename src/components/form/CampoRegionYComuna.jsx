@@ -12,7 +12,7 @@ function CampoRegionYComuna({ datos, errores, onChange }) {
         <Form.Label>Región:</Form.Label>
         <Form.Select
           name="region"
-          value={datos.region || ''}
+          value={datos.region || ""}
           onChange={onChange}
           isInvalid={Boolean(errores.region)}
         >
@@ -32,13 +32,13 @@ function CampoRegionYComuna({ datos, errores, onChange }) {
         <Form.Label>Comuna:</Form.Label>
         <Form.Select
           name="comuna"
-          value={datos.comuna || ''}
+          value={datos.comuna || ""}
           onChange={onChange}
           disabled={!datos.region}
           isInvalid={Boolean(errores.comuna)}
         >
           <option value="">
-            {datos.region ? '-- Selecciona Comuna --' : '-- Primero elige región --'}
+            {datos.region ? "-- Selecciona Comuna --" : "-- Primero elige región --"}
           </option>
           {comunasDisponibles.map((comuna) => (
             <option key={comuna} value={comuna}>
