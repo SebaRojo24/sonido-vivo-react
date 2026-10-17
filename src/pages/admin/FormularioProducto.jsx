@@ -36,12 +36,20 @@ function FormularioProducto({ onGuardar }) {
     // Si existen errores, se detiene la ejecución
     if (Object.keys(nuevosErrores).length > 0) return;
 
-    // Enviar objeto validado con conversión a número
+    // Enviar objeto validado con alias de compatibilidad
     onGuardar({
       ...datos,
+      nombre: datos.nombre,
+      name: datos.nombre,
+      categoria: datos.categoria,
+      category: datos.categoria,
       precio: Number(datos.precio),
+      price: Number(datos.precio),
       stock: Number(datos.stock),
-      imagen: datos.imagen.trim() || '/img/productos/default.jpg'
+      descripcion: datos.descripcion,
+      description: datos.descripcion,
+      imagen: datos.imagen.trim() || '/img/productos/default.jpg',
+      image: datos.imagen.trim() || '/img/productos/default.jpg'
     });
 
     // Reiniciar el formulario
