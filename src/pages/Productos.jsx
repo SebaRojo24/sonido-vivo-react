@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductoCard from "../components/ProductoCard";
+import  CarruselOfertas  from "../components/CarruselOfertas";
 
 function Productos({ productos, onAgregar }) {
   // 1. Estado para recordar la categoría seleccionada (Inicia en "Todas")
@@ -14,17 +15,24 @@ function Productos({ productos, onAgregar }) {
     <div className="container mt-4">
       <h2 className="mb-4 text-center fw-bold">Nuestro Catálogo de Instrumentos 🎸</h2>
 
+      <CarruselOfertas productos={productos} />
+
       {/* Menú desplegable interactivo */}
       <select
         className="form-select mb-4"
         value={categoria}
         onChange={(evento) => setCategoria(evento.target.value)}
       >
-        <option>Todas</option>
-        <option>Guitarras</option>
-        <option>Bajos</option>
-        <option>Percusión</option>
-        <option>Teclados</option>
+        <option>Guitarras Eléctricas</option>
+        <option>Guitarras Acústicas</option>
+        <option>Bajos Eléctricos</option>
+        <option>Baterías</option>
+        <option>Teclados y Pianos</option>
+        <option>Amplificadores</option>
+        <option>Micrófonos</option>
+        <option>Pedales de Efectos</option>
+        <option>Accesorios</option>
+        <option>Estudio y Grabación</option>
       </select>
 
       {/* Grilla que ahora muestra únicamente los productos visibles filtrados */}
