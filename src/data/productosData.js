@@ -1,21 +1,4 @@
 // src/data/productosData.js
-import teclado from "../assets/teclado.jpg";
-import baterias from "../assets/bateria.jpg";
-import afinador from "../assets/afinador.jpg";
-import amplificador from "../assets/amplificador.jpg";
-import audifono from "../assets/auriculares.jpg";
-import bajo from "../assets/bajo.jpg";
-import cable from "../assets/cable.jpg";
-import capo from "../assets/capo.jpg";
-import cuerdas from "../assets/cuerdas.jpg";
-import guitarra from "../assets/guitarra.jpg";
-import microfono from "../assets/microfono.jpg";
-import monitor from "../assets/monitor.jpg";
-import pedal from "../assets/pedal.jpg";
-import filter from "../assets/popfilter.jpg";
-import pua from "../assets/pua.jpg";
-import soporte from "../assets/soporte.jpg";
-import guitarraAcu from "../assets/guitarraAcu.jpg";
 
 export const initialProducts = [
   {
@@ -24,7 +7,7 @@ export const initialProducts = [
     category: 'Guitarras Acústicas',
     price: 129990,
     description: 'Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes.',
-    image: guitarraAcu,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 8
   },
@@ -34,7 +17,7 @@ export const initialProducts = [
     category: 'Guitarras Acústicas',
     price: 189990,
     description: 'Tapa de abeto macizo, brazo de caoba. Sonido cálido y proyectado.',
-    image: guitarraAcu,
+    image: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 5
   },
@@ -44,7 +27,7 @@ export const initialProducts = [
     category: 'Guitarras Acústicas',
     price: 89990,
     description: 'Nailon, tapa de abeto. Ideal para estudio y flamenco.',
-    image: guitarraAcu,
+    image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 10
   },
@@ -54,7 +37,7 @@ export const initialProducts = [
     category: 'Guitarras Acústicas',
     price: 349990,
     description: 'Pickup integrado, afinador incorporado.',
-    image: guitarraAcu,
+    image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 3
   },
@@ -64,7 +47,7 @@ export const initialProducts = [
     category: 'Guitarras Acústicas',
     price: 79990,
     description: 'Tamaño reducido para niños de 6 a 10 años.',
-    image: guitarraAcu,
+    image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 6
   },
@@ -74,7 +57,7 @@ export const initialProducts = [
     category: 'Guitarras Eléctricas',
     price: 249990,
     description: 'Cuerpo de álamo, mástil de arce, pastillas SSS.',
-    image: guitarra,
+    image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 5
   },
@@ -84,7 +67,7 @@ export const initialProducts = [
     category: 'Guitarras Eléctricas',
     price: 329990,
     description: 'Cuerpo caoba, tapa arce, pastillas humbucker.',
-    image: guitarra,
+    image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -94,7 +77,7 @@ export const initialProducts = [
     category: 'Guitarras Eléctricas',
     price: 319990,
     description: 'Cuerpo caoba, mástil caoba, 2 humbuckers.',
-    image: guitarra,
+    image: 'https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 3
   },
@@ -104,7 +87,7 @@ export const initialProducts = [
     category: 'Guitarras Eléctricas',
     price: 239990,
     description: 'Cuerpo álamo, clavijero vintage, 2 pastillas single.',
-    image: guitarra,
+    image: 'https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 4
   },
@@ -114,7 +97,7 @@ export const initialProducts = [
     category: 'Guitarras Eléctricas',
     price: 549990,
     description: 'Semi-hueca, 2 humbuckers, ideal para jazz y blues.',
-    image: guitarra,
+    image: 'https://images.unsplash.com/photo-1558098329-a11cff621064?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 2
   },
@@ -124,7 +107,7 @@ export const initialProducts = [
     category: 'Bajos Eléctricos',
     price: 299990,
     description: 'Pickup PJ, cuerpo álamo, mástil arce.',
-    image: bajo,
+    image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 5
   },
@@ -134,7 +117,7 @@ export const initialProducts = [
     category: 'Bajos Eléctricos',
     price: 699990,
     description: 'Alder body, 2 Alnico V Jazz single-coil.',
-    image: bajo,
+    image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -144,7 +127,7 @@ export const initialProducts = [
     category: 'Bajos Eléctricos',
     price: 429990,
     description: 'Electroacústico, afinador incorporado.',
-    image: bajo,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 2
   },
@@ -154,7 +137,7 @@ export const initialProducts = [
     category: 'Baterías',
     price: 599990,
     description: 'Incluye stands, platillos y pedal de bombo.',
-    image: baterias,
+    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -164,7 +147,7 @@ export const initialProducts = [
     category: 'Baterías',
     price: 799990,
     description: 'Módulo TD-02, 8 pads de goma, pedal hi-hat.',
-    image: baterias,
+    image: 'https://images.unsplash.com/photo-1543443374-b6fe10a6ab7b?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 2
   },
@@ -174,7 +157,7 @@ export const initialProducts = [
     category: 'Baterías',
     price: 89990,
     description: 'Acero, 14x5", 10 tensores.',
-    image: baterias,
+    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -184,7 +167,7 @@ export const initialProducts = [
     category: 'Baterías',
     price: 149990,
     description: 'Latón B20, sonido brillante y claro.',
-    image: baterias,
+    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 3
   },
@@ -194,7 +177,7 @@ export const initialProducts = [
     category: 'Baterías',
     price: 129990,
     description: 'Latón B20, ataque rápido.',
-    image: baterias,
+    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 3
   },
@@ -204,7 +187,7 @@ export const initialProducts = [
     category: 'Teclados y Pianos',
     price: 249990,
     description: '61 teclas sensibles al tacto, 622 voces.',
-    image: teclado,
+    image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -214,17 +197,17 @@ export const initialProducts = [
     category: 'Teclados y Pianos',
     price: 499990,
     description: '88 teclas pesadas, 10 voces, pedal sustain incluido.',
-    image: teclado,
+    image: 'https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
-{
+  {
     id: 'TC003',
     name: 'Sintetizador 49 teclas Arturia MiniLab MKII',
     category: 'Teclados y Pianos',
     price: 129990,
     description: 'MIDI controller, 49 mini teclas.',
-    image: teclado,
+    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 5
   },
@@ -234,7 +217,7 @@ export const initialProducts = [
     category: 'Teclados y Pianos',
     price: 399990,
     description: '88 teclas martillo, sin sonidos propios.',
-    image: teclado,
+    image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -244,7 +227,7 @@ export const initialProducts = [
     category: 'Amplificadores',
     price: 99990,
     description: '15W, distorsión incorporada, entrada auxiliar.',
-    image: amplificador,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 5
   },
@@ -254,7 +237,7 @@ export const initialProducts = [
     category: 'Amplificadores',
     price: 299990,
     description: '40W, 4 canales, efectos digitales integrados.',
-    image: amplificador,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 3
   },
@@ -264,7 +247,7 @@ export const initialProducts = [
     category: 'Amplificadores',
     price: 449990,
     description: '100W, tweeter integrado, ecualizador de 4 bandas.',
-    image: amplificador,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -274,7 +257,7 @@ export const initialProducts = [
     category: 'Amplificadores',
     price: 499990,
     description: '60W, 2 canales, reverb y chorus incorporados.',
-    image: amplificador,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -284,7 +267,7 @@ export const initialProducts = [
     category: 'Micrófonos',
     price: 149990,
     description: 'Estándar industria para voz en vivo.',
-    image: microfono,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 8
   },
@@ -294,7 +277,7 @@ export const initialProducts = [
     category: 'Micrófonos',
     price: 139990,
     description: 'Ideal para captura de instrumentos y amplificadores.',
-    image: microfono,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 6
   },
@@ -304,7 +287,7 @@ export const initialProducts = [
     category: 'Micrófonos',
     price: 199990,
     description: 'Cardioide, XLR, ideal para grabación en estudio.',
-    image: microfono,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -314,7 +297,7 @@ export const initialProducts = [
     category: 'Micrófonos',
     price: 299990,
     description: 'USB, 4 patrones polares, ideal para streaming y podcast.',
-    image: microfono,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 5
   },
@@ -324,7 +307,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 79990,
     description: 'Clásico pedal de distorsión, 3 controles.',
-    image: pedal,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 7
   },
@@ -334,7 +317,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 179990,
     description: '8 modos de reverb, control de shimmer.',
-    image: pedal,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -344,7 +327,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 349990,
     description: 'Diseño tipo pedalboard, 8 efectos simultáneos.',
-    image: pedal,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 2
   },
@@ -354,7 +337,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 89990,
     description: 'Afinador cromático, indicador de tono.',
-    image: afinador,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 8
   },
@@ -364,7 +347,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 179990,
     description: 'Delay analógico cálido, tiempo 600ms.',
-    image: pedal,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 4
   },
@@ -374,7 +357,7 @@ export const initialProducts = [
     category: 'Pedales de Efectos',
     price: 99990,
     description: 'Tube Screamer clásico, sonido suave y orgánico.',
-    image: pedal,
+    image: 'https://images.unsplash.com/photo-1563330232-57114bb0823c?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 6
   },
@@ -384,7 +367,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 8990,
     description: 'Juego 6 cuerdas, calibre ligero.',
-    image: cuerdas,
+    image: 'https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 25
   },
@@ -394,7 +377,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 10990,
     description: 'Bronce fósforo, sonido cálido.',
-    image: cuerdas,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 20
   },
@@ -404,7 +387,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 14990,
     description: 'Cuerdas de níquel enrollado, set 4 cuerdas.',
-    image: cuerdas,
+    image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 12
   },
@@ -414,7 +397,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 3990,
     description: 'Celulosa, grosor medio.',
-    image: pua,
+    image: 'https://images.unsplash.com/photo-1550985616-10810253b84d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 50
   },
@@ -424,7 +407,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 12990,
     description: 'Capotraste de resorte, compatible 6 cuerdas.',
-    image: capo,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 15
   },
@@ -434,7 +417,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 8990,
     description: 'Afinador cromático de clip, pantalla giratoria.',
-    image: afinador,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 20
   },
@@ -444,7 +427,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 12990,
     description: 'Cable trenzado, conectores dorados, 3 metros.',
-    image: cable,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 15
   },
@@ -454,7 +437,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 17990,
     description: 'Cable trenzado, conectores dorados, 6 metros.',
-    image: cable,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 10
   },
@@ -464,7 +447,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 22990,
     description: 'Soporte plegable con enganche automático.',
-    image: soporte,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 12
   },
@@ -474,7 +457,7 @@ export const initialProducts = [
     category: 'Accesorios',
     price: 18990,
     description: 'Montaje a pared, enganche automático.',
-    image: soporte,
+    image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 10
   },
@@ -484,7 +467,7 @@ export const initialProducts = [
     category: 'Estudio y Grabación',
     price: 79990,
     description: 'Circumaurales, respuesta 15Hz-20kHz.',
-    image: audifono,
+    image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 6
   },
@@ -494,7 +477,7 @@ export const initialProducts = [
     category: 'Estudio y Grabación',
     price: 219990,
     description: 'Referencia de industria, sonido neutro y detallado.',
-    image: audifono,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 4
   },
@@ -504,7 +487,7 @@ export const initialProducts = [
     category: 'Estudio y Grabación',
     price: 349990,
     description: 'Altavoz activo, respuesta plana, ideal mezcla.',
-    image: monitor,
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
     isOffer: true,
     stock: 2
   },
@@ -514,8 +497,8 @@ export const initialProducts = [
     category: 'Estudio y Grabación',
     price: 14990,
     description: 'Doble malla, brazo flexible con clip.',
-    image: filter,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
     isOffer: false,
     stock: 8
   }
-]
+];
