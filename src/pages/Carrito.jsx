@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { guardarFormulario } from "../utils/persistencia";
 
 function Carrito({ productosCarrito, onEliminar }) {
   // Si el carrito está vacío, muestra un mensaje controlado y un botón para volver
@@ -7,7 +8,7 @@ function Carrito({ productosCarrito, onEliminar }) {
       <div className="container mt-5 text-center">
         <h2 className="mb-4 text-center text-dark fw-bold">Tu Carrito está vacío 🛒</h2>
         <p className="text-muted">Aún no has agregado ningún instrumento musical a tu selección.</p>
-        <Link to="/productos" className="btn btn-primary mt-3">
+        <Link to="/" className="btn btn-primary mt-3">
           Ir al Catálogo de Productos
         </Link>
       </div>
@@ -43,7 +44,7 @@ function Carrito({ productosCarrito, onEliminar }) {
         </ul>
 
         <div className="d-flex justify-content-between align-items-center pt-3 border-top flex-wrap">
-          <Link to="/productos" className="btn btn-outline-secondary mb-2 mb-md-0">
+          <Link to="/" className="btn btn-outline-secondary mb-2 mb-md-0">
             ← Seguir Comprando
           </Link>
           <Link to="/checkout" className="btn btn-success px-4 fw-bold">

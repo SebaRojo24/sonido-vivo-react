@@ -57,7 +57,7 @@ function App() {
             path="/"
             element={<Productos productos={initialProducts} onAgregar={agregarProducto} />}
           />
-          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/productos/:id" element={<DetalleProducto onAgregar={agregarProducto}/>} />
           <Route 
             path="/carrito" 
             element={<Carrito productosCarrito={carrito} onEliminar={eliminarProducto} />} 
