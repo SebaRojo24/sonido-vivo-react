@@ -36,12 +36,20 @@ function FormularioProducto({ onGuardar }) {
     // Si existen errores, se detiene la ejecución
     if (Object.keys(nuevosErrores).length > 0) return;
 
-    // Enviar objeto validado con conversión a número
+    // Enviar objeto validado con alias de compatibilidad
     onGuardar({
       ...datos,
+      nombre: datos.nombre,
+      name: datos.nombre,
+      categoria: datos.categoria,
+      category: datos.categoria,
       precio: Number(datos.precio),
+      price: Number(datos.precio),
       stock: Number(datos.stock),
-      imagen: datos.imagen.trim() || '/img/productos/default.jpg'
+      descripcion: datos.descripcion,
+      description: datos.descripcion,
+      imagen: datos.imagen.trim() || '/img/productos/default.jpg',
+      image: datos.imagen.trim() || '/img/productos/default.jpg'
     });
 
     // Reiniciar el formulario
@@ -51,7 +59,7 @@ function FormularioProducto({ onGuardar }) {
 
   return (
     <Form onSubmit={enviar} noValidate className="card p-4 shadow-sm mb-4">
-      <h4 className="mb-4 text-center text-dark fw-bold">Nuevo Producto</h4>
+      <h4 className="mb-3">Nuevo Producto</h4>
 
       {/* Nombre */}
       <Form.Group className="mb-3" controlId="nombre">
