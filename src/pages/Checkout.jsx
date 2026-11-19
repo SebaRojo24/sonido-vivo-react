@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  obtenerCheckout,
+  registrarVenta,
+  registrarCompraFrustrada,
+} from "../utils/persistencia";
 
-// Estado inicial limpio del formulario según la estructura de la guía
 const estadoInicial = {
   nombreCompleto: "",
   correoElectronico: "",
@@ -9,12 +13,57 @@ const estadoInicial = {
   comuna: "",
 };
 
-function Checkout({ vaciarCarrito }) {
+function Checkout({ limpiarCarrito }) {
   const [datos, setDatos] = useState(estadoInicial);
   const [errores, setErrores] = useState({});
-  const navigate = useNavigate(); // Hook oficial para redirigir de página
+  const [procesando, setProcesando] = useState(false);
+  const [segundos, setSegundos] = useState(5);
+  const navigate = useNavigate();
 
-  // Manejador único onChange para actualizar el estado dinámicamente usando 'name'
+  // Recupera el último carrito guardado usando obtenerRegistro
+function construirRegistro(estadoOperacion) {
+    const productos = obtenerCheckout();
+    const total = productos.reduce((acc, item) => acc + (item.price || 0), 0);
+
+    return {
+      id: Date.now(),
+      fecha: new Date().toLocaleString("es-CL"),
+      estado: estadoOperacion,
+      cliente: datos,
+      productos,
+      total,
+    };
+  }
+
+  function concretarVenta() {
+    const registroVenta = construirRegistro("completada");
+    registrarVenta(registroVenta);
+    limpiarCarrito(); // Limpia estado de App.jsx y carrito_checkout en un solo paso
+    navigate("/pago-exitoso");
+  }
+
+  function frustrarCompra() {
+    setProcesando(false);
+    const registroFrustrado = construirRegistro("frustrada");
+    registrarCompraFrustrada(registroFrustrado);
+    navigate("/pago-error");
+  }
+
+  useEffect(() => {
+    if (!procesando) return;
+
+    if (segundos === 0) {
+      concretarVenta();
+      return;
+    }
+
+    const temporizador = setTimeout(() => {
+      setSegundos((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearTimeout(temporizador);
+  }, [procesando, segundos]);
+
   function manejarCambio(evento) {
     const { name, value } = evento.target;
     setDatos({
@@ -23,12 +72,10 @@ function Checkout({ vaciarCarrito }) {
     });
   }
 
-  // Lógica oficial de validación al hacer submit
   function manejarEnvio(evento) {
     evento.preventDefault();
     const nuevosErrores = {};
 
-    // Validaciones manuales basadas en la Guía 11
     if (!datos.nombreCompleto.trim()) {
       nuevosErrores.nombreCompleto = "El nombre completo es obligatorio";
     }
@@ -45,85 +92,95 @@ function Checkout({ vaciarCarrito }) {
     }
 
     setErrores(nuevosErrores);
-
-    // Si el objeto de errores tiene alguna propiedad, se detiene el flujo
     if (Object.keys(nuevosErrores).length > 0) return;
 
-    // Simulación del negocio: Si todo está bien, vacía el carrito y redirige al éxito
-    vaciarCarrito();
-    navigate("/pago-exitoso");
+    setSegundos(5);
+    setProcesando(true);
   }
 
   return (
     <div className="container mt-4" style={{ maxWidth: "600px" }}>
       <h2 className="mb-4 text-center text-dark fw-bold">Formulario de Despacho y Pago</h2>
       <div className="card shadow-sm p-4">
-        <form onSubmit={manejarEnvio} noValidate>
-          
-          {/* Campo: Nombre Completo */}
-          <div className="mb-3">
-            <label className="form-label fw-bold">Nombre Completo</label>
-            <input
-              type="text"
-              name="nombreCompleto"
-              className={`form-control ${errores.nombreCompleto ? "is-invalid" : ""}`}
-              value={datos.nombreCompleto}
-              onChange={manejarCambio}
-            />
-            {errores.nombreCompleto && (
-              <div className="invalid-feedback">{errores.nombreCompleto}</div>
-            )}
+        {procesando ? (
+          <div className="text-center py-4">
+            <div className="spinner-border text-primary mb-3" role="status" />
+            <h4 className="fw-bold">Procesando tu pago...</h4>
+            <p className="text-muted">
+              La transacción se confirmará automáticamente en{" "}
+              <span className="fw-bold text-dark">{segundos}</span> segundos.
+            </p>
+            <button
+              type="button"
+              onClick={frustrarCompra}
+              className="btn btn-outline-danger fw-bold mt-2 px-4"
+            >
+              Cancelar Compra
+            </button>
           </div>
+        ) : (
+          <form onSubmit={manejarEnvio} noValidate>
+            <div className="mb-3">
+              <label className="form-label fw-bold">Nombre Completo</label>
+              <input
+                type="text"
+                name="nombreCompleto"
+                className={`form-control ${errores.nombreCompleto ? "is-invalid" : ""}`}
+                value={datos.nombreCompleto}
+                onChange={manejarCambio}
+              />
+              {errores.nombreCompleto && (
+                <div className="invalid-feedback">{errores.nombreCompleto}</div>
+              )}
+            </div>
 
-          {/* Campo: Correo Electrónico */}
-          <div className="mb-3">
-            <label className="form-label fw-bold">Correo Electrónico</label>
-            <input
-              type="email"
-              name="correoElectronico"
-              className={`form-control ${errores.correoElectronico ? "is-invalid" : ""}`}
-              value={datos.correoElectronico}
-              onChange={manejarCambio}
-            />
-            {errores.correoElectronico && (
-              <div className="invalid-feedback">{errores.correoElectronico}</div>
-            )}
-          </div>
+            <div className="mb-3">
+              <label className="form-label fw-bold">Correo Electrónico</label>
+              <input
+                type="email"
+                name="correoElectronico"
+                className={`form-control ${errores.correoElectronico ? "is-invalid" : ""}`}
+                value={datos.correoElectronico}
+                onChange={manejarCambio}
+              />
+              {errores.correoElectronico && (
+                <div className="invalid-feedback">{errores.correoElectronico}</div>
+              )}
+            </div>
 
-          {/* Campo: Dirección de Despacho */}
-          <div className="mb-3">
-            <label className="form-label fw-bold">Dirección de Despacho</label>
-            <input
-              type="text"
-              name="direccionDespacho"
-              className={`form-control ${errores.direccionDespacho ? "is-invalid" : ""}`}
-              value={datos.direccionDespacho}
-              onChange={manejarCambio}
-            />
-            {errores.direccionDespacho && (
-              <div className="invalid-feedback">{errores.direccionDespacho}</div>
-            )}
-          </div>
+            <div className="mb-3">
+              <label className="form-label fw-bold">Dirección de Despacho</label>
+              <input
+                type="text"
+                name="direccionDespacho"
+                className={`form-control ${errores.direccionDespacho ? "is-invalid" : ""}`}
+                value={datos.direccionDespacho}
+                onChange={manejarCambio}
+              />
+              {errores.direccionDespacho && (
+                <div className="invalid-feedback">{errores.direccionDespacho}</div>
+              )}
+            </div>
 
-          {/* Campo: Comuna */}
-          <div className="mb-4">
-            <label className="form-label fw-bold">Comuna</label>
-            <input
-              type="text"
-              name="comuna"
-              className={`form-control ${errores.comuna ? "is-invalid" : ""}`}
-              value={datos.comuna}
-              onChange={manejarCambio}
-            />
-            {errores.comuna && (
-              <div className="invalid-feedback">{errores.comuna}</div>
-            )}
-          </div>
+            <div className="mb-4">
+              <label className="form-label fw-bold">Comuna</label>
+              <input
+                type="text"
+                name="comuna"
+                className={`form-control ${errores.comuna ? "is-invalid" : ""}`}
+                value={datos.comuna}
+                onChange={manejarCambio}
+              />
+              {errores.comuna && (
+                <div className="invalid-feedback">{errores.comuna}</div>
+              )}
+            </div>
 
-          <button type="submit" className="btn btn-primary w-100 fw-bold py-2">
-            Confirmar y Simular Transacción
-          </button>
-        </form>
+            <button type="submit" className="btn btn-primary w-100 fw-bold py-2">
+              Confirmar y Simular Transacción
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
