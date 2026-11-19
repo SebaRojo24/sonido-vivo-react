@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BtnProductos from "../components/buttons/BtnProductos";
 
 function PagoError() {
   return (
@@ -15,9 +16,7 @@ function PagoError() {
           <Link to="/checkout" className="btn btn-outline-danger w-100 fw-bold">
             Reintentar Pago
           </Link>
-          <Link to="/productos" className="btn btn-secondary w-100">
-            Ver Catálogo
-          </Link>
+          <BtnProductos className="w-100"/>
         </div>
       </div>
     </div>

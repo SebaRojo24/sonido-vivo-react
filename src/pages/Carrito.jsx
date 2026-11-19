@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
-import { guardarFormulario } from "../utils/persistencia";
+import { Link, useNavigate } from "react-router-dom";
+import { guardarCheckout } from "../utils/persistencia";
 
 function Carrito({ productosCarrito, onEliminar }) {
-  // Si el carrito está vacío, muestra un mensaje controlado y un botón para volver
+  const navigate = useNavigate();
+
+  const handleIrACheckout = () => {
+    guardarCheckout(productosCarrito);
+    navigate("/checkout");
+  };
+
   if (productosCarrito.length === 0) {
     return (
       <div className="container mt-5 text-center">
@@ -20,7 +26,6 @@ function Carrito({ productosCarrito, onEliminar }) {
       <h2 className="mb-4 text-center text-dark fw-bold">Carrito de Compras</h2>
       <div className="card shadow-sm p-4">
         <ul className="list-group list-group-flush mb-4">
-          {/* Recorremos el arreglo de estado que viene desde App.jsx */}
           {productosCarrito.map((item) => (
             <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center py-3 flex-wrap">
               <div className="col-12 col-md-8">
@@ -29,9 +34,8 @@ function Carrito({ productosCarrito, onEliminar }) {
               </div>
               <div className="col-12 col-md-4 d-flex justify-content-between align-items-center mt-2 mt-md-0">
                 <span className="fw-bold text-primary fs-5">
-                  ${item.price.toLocaleString("es-CL")}
+                  ${(item.price || 0).toLocaleString("es-CL")}
                 </span>
-                {/* Botón obligatorio para eliminar elementos respetando la Guía 10 */}
                 <button
                   className="btn btn-danger btn-sm"
                   onClick={() => onEliminar(item.id)}
@@ -47,9 +51,13 @@ function Carrito({ productosCarrito, onEliminar }) {
           <Link to="/" className="btn btn-outline-secondary mb-2 mb-md-0">
             ← Seguir Comprando
           </Link>
-          <Link to="/checkout" className="btn btn-success px-4 fw-bold">
+          <button
+            type="button"
+            onClick={handleIrACheckout}
+            className="btn btn-success px-4 fw-bold"
+          >
             Proceder al Pago
-          </Link>
+          </button>
         </div>
       </div>
     </div>

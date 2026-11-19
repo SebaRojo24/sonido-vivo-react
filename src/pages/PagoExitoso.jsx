@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import BtnProductos from "../components/buttons/BtnProductos";
 
 function PagoExitoso() {
   return (
@@ -11,9 +11,7 @@ function PagoExitoso() {
         <p className="text-muted mb-4">
           Tu transacción ha sido procesada con éxito. Hemos enviado el comprobante y los detalles del despacho a tu correo electrónico.
         </p>
-        <Link to="/productos" className="btn btn-success w-100 fw-bold py-2">
-          Volver a la Tienda
-        </Link>
+        <BtnProductos className="w-100"/>
       </div>
     </div>
   );

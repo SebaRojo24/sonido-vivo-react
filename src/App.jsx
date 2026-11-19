@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { initialProducts } from './data/productosData';
 import { guardarCarritoLocalStorage } from "./utils/persistencia";
+import { limpiarCheckout } from "./utils/persistencia";
 import Navegacion from "./components/Navegacion";
-import Inicio from "./pages/Inicio";
 import Productos from "./pages/Productos";
 import DetalleProducto from "./pages/DetalleProducto";
 import Carrito from "./pages/Carrito"; 
@@ -45,8 +45,9 @@ function App() {
   }
 
   function limpiarCarrito() {
-    setCarrito([]);
-  }
+  setCarrito([]);
+  limpiarCheckout();
+}
 
   return (
     <>
@@ -64,7 +65,7 @@ function App() {
           />
           <Route 
             path="/checkout" 
-            element={<Checkout vaciarCarrito={limpiarCarrito} />} 
+            element={<Checkout limpiarCarrito={limpiarCarrito} />} 
           />
           <Route path="/nosotros" element={<Nosotros/>} />
           <Route path="/blog" element={<Blog/>} />
