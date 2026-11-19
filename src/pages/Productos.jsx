@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductoCard from "../components/ProductoCard";
+import TarjetaProducto from "../components/TarjetaProducto";
 import  CarruselOfertas  from "../components/CarruselOfertas";
 
 function Productos({ productos, onAgregar }) {
@@ -39,7 +39,7 @@ function Productos({ productos, onAgregar }) {
       <div className="row g-4">
         {visibles.map((producto) => (
           <div className="col-12 col-md-6 col-lg-4" key={producto.id}>
-            <ProductoCard producto={producto} onAgregar={onAgregar} />
+            <TarjetaProducto producto={producto} onAgregar={onAgregar} />
           </div>
         ))}
       </div>

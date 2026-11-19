@@ -39,14 +39,6 @@ function Registro({ onGuardar, onCancelar, esAdmin = false }) {
     setErrores(nuevosErrores);
     if (Object.keys(nuevosErrores).length > 0) return; 
 
-    /*
-    Deprecado por charcha: Asignación de categoría por defecto para formulario que no es de administrador:
-    const usuarioAGuardar = {
-      ...datos,
-      categoria: esAdmin ? datos.categoria : "Usuario"
-    };
-    */
-
     if (onGuardar) {
       onGuardar(usuarioAGuardar);
     } else {

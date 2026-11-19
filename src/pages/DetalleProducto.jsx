@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { initialProducts } from "../data/productosData";
 import { formatearPrecio } from "../utils/precio";
+import BtnProductos from "../components/buttons/BtnProductos";
+import BtnAgregarAlCarrito from "../components/buttons/BtnAgregarAlCarrito";
 
-function DetalleProducto() {
+function DetalleProducto({onAgregar}) {
   const { id } = useParams();
 
   const producto = initialProducts.find(
@@ -13,11 +16,11 @@ function DetalleProducto() {
     return (
       <div className="container mt-5 text-center">
         <p className="alert alert-danger">El instrumento solicitado no existe.</p>
-        <Link to="/productos" className="btn btn-secondary">Volver al Catálogo</Link>
+        <Link to="/" className="btn btn-secondary">Volver al Catálogo</Link>
       </div>
     );
   }
-
+  
   return (
     <div className="container mt-5">
       <div className="row align-items-center">
@@ -34,9 +37,9 @@ function DetalleProducto() {
           <h1 className="fw-bold text-dark">{producto.name}</h1>
           <p className="text-muted fs-5">{producto.description}</p>
           <h3 className="text-primary fw-bold mb-4">Precio: {formatearPrecio(producto.price)}</h3>
-          <Link to="/productos" className="btn btn-outline-primary">
-            ← Volver al Catálogo
-          </Link>
+          <BtnAgregarAlCarrito producto={producto} onAgregar={onAgregar}/>
+          <BtnProductos className="w-100"/>
+
         </div>
       </div>
     </div>

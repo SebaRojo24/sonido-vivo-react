@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { formatearPrecio } from "../utils/precio";
+import BtnAgregarAlCarrito from "./buttons/BtnAgregarAlCarrito";
 
-function ProductoCard({ producto, onAgregar }) {
+function TarjetaProducto({ producto, onAgregar }) {
   return (
     <article className="card h-100 shadow-sm overflow-hidden">
 
@@ -30,17 +31,11 @@ function ProductoCard({ producto, onAgregar }) {
             Ver Detalle
           </Link>
 
-          <button
-            className="btn btn-primary w-100"
-            onClick={() => onAgregar(producto)}
-            disabled={producto.stock === 0}
-          >
-            {producto.stock === 0 ? "Agotado" : "Agregar al carrito"}
-          </button>
+          <BtnAgregarAlCarrito producto={producto} onAgregar={onAgregar}/>
         </div>
       </div>
     </article>
   );
 }
 
-export default ProductoCard;
+export default TarjetaProducto;
