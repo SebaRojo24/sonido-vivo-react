@@ -39,22 +39,22 @@ function Productos({ onAgregar }) {
       {/* Carrusel con los datos reales */}
       <CarruselOfertas productos={productos} />
 
-      <select
-        className="form-select mb-4"
-        value={categoria}
-        onChange={(evento) => setCategoria(evento.target.value)}
-      >
-        <option>Todas</option>
-        <option>Guitarras Eléctricas</option>
-        <option>Guitarras Acústicas</option>
-        <option>Bajos Eléctricos</option>
-        <option>Baterías</option>
-        <option>Teclados y Pianos</option>
-        <option>Amplificadores</option>
-        <option>Micrófonos</option>
-        <option>Pedales de Efectos</option>
-        <option>Accesorios</option>
-        <option>Estudio y Grabación</option>
+      <select 
+        className="form-select mb-4" 
+        value={categoria} 
+        onChange={(evento) => setCategoria(evento.target.value)} 
+      > 
+        <option value="Todas">Todas</option> 
+        <option value="Guitarras Acústicas">Guitarras Acústicas</option>
+        <option value="Guitarras Eléctricas">Guitarras Eléctricas</option>
+        <option value="Bajos Eléctricos">Bajos Eléctricos</option>
+        <option value="Baterías">Baterías</option>
+        <option value="Teclados y Pianos">Teclados y Pianos</option>
+        <option value="Amplificadores">Amplificadores</option>
+        <option value="Micrófonos">Micrófonos</option>
+        <option value="Pedales de Efectos">Pedales de Efectos</option>
+        <option value="Accesorios">Accesorios</option>
+        <option value="Estudio y Grabación">Estudio y Grabación</option>
       </select>
 
       <div className="row g-4">
